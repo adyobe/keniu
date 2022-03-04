@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <script>console.log("(・ὢ・)見たな....")</script>
+  <!-- LINE Tag Base Code -->
+  <!-- Do Not Modify -->
+  <script>
+      (function (g, d, o) {
+        g._ltq = g._ltq || []; g._lt = g._lt || function () { g._ltq.push(arguments) };
+        var h = location.protocol === 'https:' ? 'https://d.line-scdn.net' : 'http://d.line-cdn.net';
+        var s = d.createElement('script'); s.async = 1;
+        s.src = o || h + '/n/line_tag/public/release/v1/lt.js';
+        var t = d.getElementsByTagName('script')[0]; t.parentNode.insertBefore(s, t);
+      })(window, document);
+    _lt('init', {
+      customerType: 'account',
+      tagId: '31e6eaa0-0503-4711-9940-9716a1439ba6'
+    });
+    _lt('send', 'pv', ['31e6eaa0-0503-4711-9940-9716a1439ba6']);
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://tr.line.me/tag.gif?c_t=lap&t_id=31e6eaa0-0503-4711-9940-9716a1439ba6&e=pv&noscript=1" />
+  </noscript>
+  <!-- End LINE Tag Base Code -->
+  <script>
+    _lt('send', 'cv', {
+      type: 'Conversion'
+    }, ['31e6eaa0-0503-4711-9940-9716a1439ba6']);
+  </script>
+  <title>アグダー市場</title>
+  <meta charset="utf-8">
+  <meta name="author" content="アヂョベ">
+  <meta name="description" content="やあ">
+  <meta name="keywords" content="agder">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <style>
+    body {
+      background-color: white;
+      font-family: 'YuGothic', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', 'Meiryo', 'ＭＳ ゴシック', sans-serif;
+    }
+
+    header {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      flex-wrap: wrap;
+      background-color: white;
+      z-index: 99999;
+    }
+
+    .rank {
+      display: inline-block;
+      width: 4rem;
+    }
+
+    main div span:not(.rank) {
+      padding: 0 .5rem 0 1rem;
+    }
+
+    .com {
+      text-indent: .5rem;
+    }
+
+    .comment {
+      overflow: auto;
+    }
+
+    h1 {
+      font-size: medium;
+    }
+
+    table {
+      text-align: center;
+    }
+
+    table {
+      border: 3px solid black;
+    }
+
+    td {
+      width: 6ex;
+    }
+
+    .chart {
+      height: 50vh;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>アグダー市場</div>
+    <div><button onclick="get()">再取得</button> 前回[<span id="getdate"></span>]</div>
+    <div id="message">取得中……</div>
+  </header>
+  <main>
+    <div>
+      <article>
+        <h1>今の時間の推移</h1>
+        <section id="hour" class="com">
+          <div>
+            <table>
+              <tr>
+                <th>00~15</th>
+                <th>15~30</th>
+                <th>30~45</th>
+                <th>45~60</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+        <h1>今の時間の傾向</h1>
+        <section id="trend" class="com">
+          <div>検索中</div>
+        </section>
+      </article>
+      <article>
+        <h1>24時間の時平均の推移</h1>
+        <section id="day" class="com">
+          <div>
+            <table>
+              <tr>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11</th>
+                <th>12</th>
+                <th>13</th>
+                <th>14</th>
+                <th>15</th>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <th>16</th>
+                <th>17</th>
+                <th>18</th>
+                <th>19</th>
+                <th>20</th>
+                <th>21</th>
+                <th>22</th>
+                <th>23</th>
+              </tr>
+              <tr>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+        <h1>24時間の時四本値</h1>
+        <section id="day4" class="com">
+          <div class="chart">描画中</div>
+        </section>
+      </article>
+      <article>
+        <h1>7日間の日平均の推移</h1>
+        <section id="week" class="com">
+          <div>
+            <table>
+              <tr>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+        <h1>7日間の日四本値</h1>
+        <section id="week4" class="com">
+          <div class="chart">描画中</div>
+        </section>
+      </article>
+      <article>
+        <h1>4週間の週平均の推移</h1>
+        <section id="month" class="com">
+          <div>
+            <table>
+              <tr>
+                <th>0</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+        <h1>4週間の週四本値</h1>
+        <section id="month4" class="com">
+          <div class="chart">描画中</div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- ↑Googleのチャートやグラフを描画するライブラリの読み込み↑ -->
+  <script>
+    const url = "https://script.google.com/macros/s/AKfycbwKq0JI09zycWch-ALjeRcDv1W4C-EspHiDYbl-FcEFEoj8J9YRfow72Ac2e7pFpGSbNA/exec";
+    const getdate = document.getElementById("getdate");
+    const element = {
+      hour: [...document.querySelector("#hour > div > table > tbody > tr:nth-child(2)").children],
+      trend: document.querySelector("#trend > div"),
+      day: [
+        ...document.querySelector("#day > div > table > tbody > tr:nth-child(2)").children,
+        ...document.querySelector("#day > div > table > tbody > tr:nth-child(4)").children,
+        ...document.querySelector("#day > div > table > tbody > tr:nth-child(6)").children,
+      ],
+      day4: document.querySelector("#day4 > div"),
+      week: [...document.querySelector("#week > div > table > tbody > tr:nth-child(2)").children],
+      week4: document.querySelector("#week4 > div"),
+      month: [...document.querySelector("#month > div > table > tbody > tr:nth-child(2)").children],
+      month4: document.querySelector("#month4 > div"),
+      message: document.querySelector("#message"),
+    }
+    const agderObj = {// それぞれ過去から今へ順に格納
+      hour: [],// 今の時間の推移 * 4
+      trend: 0,// 今の時間の傾向 0~2
+      day: [],// 24時間の時平均の推移 * 24
+      day4: [],// 24時間の時四本値 [始値, 高値, 安値, 終値] * 24
+      week: [],// 7日間の日平均の推移 * 7
+      week4: [],// 7日間の日四本値 [始値, 高値, 安値, 終値] * 7
+      month: [],// 4週間の週平均の推移 * 4
+      month4: [],// 4週間の週四本値 [始値, 高値, 安値, 終値] * 4
+    };
+    const get = () => {
+      element.message.innerHTML = "取得中……";
+      let date = new Date()
+      getdate.innerHTML = ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2) + "." + date.getMilliseconds();
+      fetch(url).then(response => {
+        console.log(response);
+        return response.text();
+      }).then(text => {
+        text = JSON.parse(text);
+        console.log(text);
+        if (text.state) {
+          agderObj.hour = text.arr[0];
+          agderObj.trend = text.arr[1];
+          agderObj.day = text.arr[2];
+          agderObj.day4 = text.arr[3];
+          agderObj.week = text.arr[4];
+          agderObj.week4 = text.arr[5];
+          agderObj.month = text.arr[6];
+          agderObj.month4 = text.arr[7];
+        }
+        element.hour.forEach((e, i) => e.innerHTML = (agderObj.hour[i] || 0));
+        let trendText = "";
+        switch (agderObj.trend) {
+          case 0:
+            trendText = "下がり気味";
+            break;
+          case 1:
+            trendText = "変わらない";
+            break;
+          case 2:
+            trendText = "上がり気味";
+            break;
+          default:
+            trendText = "エラー";
+            break;
+        }
+        element.trend.innerHTML = trendText;
+        element.day.forEach((e, i) => e.innerHTML = agderObj.day[i]);
+        element.week.forEach((e, i) => e.innerHTML = agderObj.week[i]);
+        element.month.forEach((e, i) => e.innerHTML = agderObj.month[i]);
+        createChart(element.day4, agderObj.day4.map((e, i) => [i, ...e]));
+        createChart(element.week4, agderObj.week4.map((e, i) => [i, ...e]));
+        createChart(element.month4, agderObj.month4.map((e, i) => [i, ...e]));
+
+        element.message.innerHTML = text.mes;
+      }).catch(error => {
+        console.log(error);
+        alert(error);
+      });
+    };
+
+    // Google chartの準備開始
+    google.charts.load('current', { 'packages': ['corechart'] });
+    const chartOption = {
+      // chartArea: {
+      //   left: 80,
+      //   top: 111,
+      //   right: 80,
+      //   bottom: 89
+      // },
+      legend: "none"
+    };
+    function createChart(ele = "", data = []) {
+      const chartData = google.visualization.arrayToDataTable(data, true);
+      const chart = new google.visualization.CandlestickChart(ele);
+      chart.draw(chartData, chartOption);
+    }
+    // Google chartの準備完了
+
+    window.addEventListener("load", get);
+  </script>
+</body>
+
+</html>

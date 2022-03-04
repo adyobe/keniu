@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <script>console.log("(・ὢ・)見たな....")</script>
+  <script>console.log("version 1.1.0")</script>
+  <title>つくってツクツク</title>
+  <meta charset="utf-8">
+  <meta name="author" content="アヂョベ">
+  <meta name="description" content="やあ">
+  <meta name="keywords" content="つくってツクツク">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <style>
+    @keyframes fadeout {
+
+      0% {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      100% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-5px);
+      }
+    }
+
+    .fadeout {
+      animation: fadeout .5s forwards;
+    }
+
+    /* ここまで定義 */
+
+
+
+
+
+    * {
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+    }
+
+    html {
+      height: 100vh;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    body>* {
+      padding-left: 8px;
+      padding-right: 8px;
+      margin: 0;
+      width: 100%;
+    }
+
+    body {
+      background-color: #eeeeee;
+      font-family: 'YuGothic', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', 'Meiryo', 'ＭＳ ゴシック', sans-serif;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      display: flex;
+      visibility: hidden;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: white;
+      top: 0;
+      width: 100%;
+      min-height: 6em;
+      max-height: 20vh;
+      padding: 4px;
+      position: fixed;
+      overflow: auto;
+    }
+
+    main {
+      background-color: black;
+      padding-top: 1ex;
+      padding-bottom: 1ex;
+      flex: 1;
+    }
+
+    footer {
+      color: white;
+      background-color: deepskyblue;
+      margin-top: auto;
+      padding-top: 1ex;
+      padding-bottom: 1ex;
+    }
+
+    nav {
+      padding: 2px 0;
+    }
+
+    .hDef {
+      font-size: x-large;
+      margin: 0;
+    }
+
+    div.content {
+      padding-top: 3px;
+      padding-bottom: 3px;
+    }
+
+    ul {
+      margin-top: 1ex;
+      margin-bottom: 1ex;
+    }
+
+    nav.actionButton label::before {
+      margin-left: 0.35em;
+      margin-right: 0.35em;
+      display: inline-block;
+      width: 0.7em;
+      height: 0.7em;
+      background: linear-gradient(-45deg, white, black, white);
+      transform: rotate(45deg);
+      content: "";
+      border-radius: 2px;
+      opacity: 90%;
+    }
+
+    nav.actionButton>* {
+      white-space: nowrap;
+      display: block;
+      margin-top: 3px;
+    }
+
+    nav.actionButton>*>* {
+      overflow: hidden;
+    }
+
+    button {
+      user-select: none;
+    }
+
+    main>* {
+      height: 100%;
+      width: 100%;
+      background-color: #eeeeee;
+      border-radius: 4px;
+      padding: 0 4px;
+    }
+
+    main>*>*>h1:first-child {
+      margin: 0;
+      padding: 3px 0;
+    }
+
+    /* ここまでは大まかなくくり */
+
+
+
+    header {
+      display: flex;
+      overflow: unset;
+    }
+
+    header>* {
+      flex: 1;
+      overflow-wrap: break-word;
+      min-width: 0;
+      padding: 0 3px;
+    }
+
+    header>*>* {
+      height: 100%;
+      overflow: auto;
+    }
+
+    .informationContainor {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: black 3px solid;
+      background-color: #eeeeee;
+      padding: 0 2px;
+    }
+
+    .informationContainor * {
+      font-size: x-small;
+    }
+
+    .informationTitle {
+      text-align: center;
+      vertical-align: top;
+      margin: 0;
+    }
+
+    .informationTitle::after,
+    .informationTitle::before {
+      margin: 0 1ex;
+      background-color: black;
+      content: "";
+      height: 1ex;
+      width: 1ex;
+      border-radius: 1ex;
+      display: inline-block;
+    }
+
+    .informationContents {
+      flex: 1;
+      text-indent: 1ex;
+    }
+
+    #changePageSelect {
+      max-width: calc(100% - 3em);
+      user-select: none;
+    }
+
+    /* ここまではこのページのフォーマット */
+  </style>
+  <link rel="stylesheet" href="../assets/css/details_class_description.css">
+  <style>
+    .hDef {
+      font-size: medium;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .top {
+      position: sticky;
+      position: -webkit-sticky;
+    }
+
+    .menuElement {
+      margin-left: 2px;
+      margin-right: 2px;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    #pageSubContents div {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div>
+      <!-- ここはタイトルと操作ボタン欄 -->
+      <aside>
+        <h1 class="hDef">つくってツクツク</h1>
+        <nav class="actionButton">
+          <span><label><button class="scrollBottom">下へ行く</button></label></span>
+          <span><label><select id="changePageSelect">
+                <option value="" disabled>移動するページを選びます</option>
+                <option value="pageMain" selected>実行モード</option>
+                <option value="pageSub">編集モード</option>
+                <option value="pageHistory">過去の歴史</option>
+              </select></label></span>
+        </nav>
+      </aside>
+    </div>
+    <div>
+      <!-- ここはお知らせ欄 -->
+      <aside class="informationContainor">
+        <h1 class="informationTitle">お知らせ</h1>
+        <div class="informationContents"></div>
+      </aside>
+    </div>
+  </header>
+  <main>
+    <!--
+    <article id="page好きな名前">
+      <section>
+        <h1>このページのタイトル</h1>
+        <div id="page上と同じ名前Contents">
+          ここに要素を追加していく
+        </div>
+      </section>
+    </article>
+    -->
+    <article id="pageMain">
+      <section>
+        <h1>実行欄</h1>
+        <div id="pageMainContents">
+          <div id="tukutukuButton" class="top">
+            <button id="tukutukuButtonStart" class="menuElement">start</button>
+            <button id="tukutukuButtonStop" class="menuElement">stop</button>
+            <button id="tukutukuButtonEnd" class="menuElement">end</button>
+            <span id="tukutukuAllDay" class="menuElement" style="background-color: white;border: black 2px solid;">0</span>
+          </div>
+          <div id="tukutukuContents"></div>
+        </div>
+      </section>
+    </article>
+    <article id="pageSub">
+      <section>
+        <h1>編集欄</h1>
+        <div id="pageSubContents">
+          <div><button onclick="adyobe.reset();" class="menuElement">reset</button></div>
+          <details class="description">
+            <summary>サンプル</summary>
+            <form id="sumpleFrom">
+              <div><label><input type="radio" name="sumple" value="tukutuku">ツクツクボーシ</label></div>
+              <div><label><input type="radio" name="sumple" value="agder" checked>アグダーツクツク</label></div>
+              <div><label><input type="radio" name="sumple" value="panipannji">やぁやぁボーシ</label></div>
+              <div><button type="submit">サンプルを見る</button></div>
+            </form>
+          </details>
+          <form id="editorFrom" onsubmit="return false;" onchange="editor(event.target);">
+            <div><label><span style="width: 6.2em; display: inline-block;">一つ目</span><input type="text"></label></div>
+            <div><label><span style="width: 6.2em; display: inline-block;">二つ目</span><input type="text"></label></div>
+            <div><label><span style="width: 6.2em; display: inline-block;">三つ目</span><input type="text"></label></div>
+            <div><label><span style="width: 6.2em; display: inline-block;">四つ目</span><input type="text"></label></div>
+            <div><label><span style="width: 6.2em; display: inline-block;">五つ目</span><input type="text"></label></div>
+            <div><label><span style="width: 6.2em; display: inline-block;">何が</span><input type="text"></label></div>
+            <div><label><span style="width: 6.2em; display: inline-block;">何した？</span><input type="text"></label></div>
+            <div><label><span style="width: 6.2em; display: inline-block;">成長速度/ms</span><input type="number" min="0" placeholder="何秒で1成長？" onchange="this.value<0?(this.value='',this.placeholder='最低値は0です'):(this.placeholder='')"></label></div>
+            <div><label><span style="width: 6.2em; display: inline-block;">1/終了確率</span><input type="number" min="1" placeholder="何分の1で終了？" onchange="this.value<=1?(this.value='',this.placeholder='最低値は1です'):(this.placeholder='')"></label></div>
+          </form>
+          <div><button onclick="createUrl();">URLを共有する</button></div>
+          <div><textarea id="outputUrl">この欄は大きさを変えられます。</textarea></div>
+        </div>
+      </section>
+    </article>
+    <article id="pageHistory">
+      <section>
+        <h1>歴史欄</h1>
+        <div id="pageHistoryContents"></div>
+      </section>
+    </article>
+  </main>
+  <footer>
+    <nav class="actionButton">
+      <label><button class="scrollTop">上へ戻る</button></label>
+    </nav>
+    <nav class="linkList">
+      <h1 class="hDef">参考資料</h1>
+      <ul>
+        <li>
+          <a href="https://twitter.com/windymelt/status/1424087366872956928">https://twitter.com/windymelt/status/1424087366872956928</a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script>
+    let informationElement;// お知らせを追加できるよ！
+    let historyElement;// 過去のお知らせを追加できるよ！
+    (() => {// DOMが読み込まれてから実行(ここにある定数はグローバルじゃない)
+
+      function elementFadeout(element) {// 0.5秒で要素をフェードアウト
+        element.classList.add("fadeout");
+        setTimeout(() => { element.remove() }, 500);
+      }
+      const elementHeader = document.querySelectorAll("header")[0];
+      const elementHeaderTitle = document.querySelectorAll("header>h1")[0];
+      const elementChangePageSelect = document.querySelectorAll("#changePageSelect")[0];
+      const elementPageHistoryContents = document.querySelectorAll("#pageHistoryContents")[0];
+      const elementMainPages = document.querySelectorAll("main>*") ?? [];
+      const elementsButton_scrollTop = document.querySelectorAll("button.scrollTop") ?? [];
+      const elementsButton_scrollBottom = document.querySelectorAll("button.scrollBottom") ?? [];
+      const elementsInformationContents = document.querySelectorAll(".informationContents") ?? [];
+      // ここまで定数宣言 element→一つの要素 elements→風数の要素
+
+      if (elementHeader) {
+        document.body.style.paddingTop = `${elementHeader.offsetHeight}px`;// headerの分だけmainの上に余白をつくる
+        elementHeader.style.height = `${elementHeader.offsetHeight}px`;// headerの高さ決定
+      }
+      if (elementHeaderTitle) {
+        elementHeaderTitle.textContent = document.title;// 自動でタイトル変更(保険)
+      }
+      if (elementChangePageSelect) {// ページ切り替え制御
+        elementChangePageSelect.addEventListener("change", function (event) {
+          const value = elementChangePageSelect[this.selectedIndex].value;// 選択された要素のvalueを取得
+          elementMainPages.forEach(element => {
+            element.style.display = (element.id == value ? null : "none");// 選択した要素のvalueと一致するidを持つ要素のみ表示して他は消す
+          });
+        }, { passive: true });
+      }
+      elementsButton_scrollTop.forEach(element => element.addEventListener("click", () => {// 上へボタン制御
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, { passive: true }));
+      elementsButton_scrollBottom.forEach(element => element.addEventListener("click", () => {// 下へボタン制御
+        window.scrollTo({ top: document.body.scrollHeight - document.body.clientHeight, behavior: "smooth" });
+      }, { passive: true }));
+      // ここまでイベントの処理定義
+
+      elementMainPages.forEach((element, i) => {// mainの最初の要素のみ表示して他は消す
+        element.style.display = (i == 0 ? null : "none");
+      })
+      // ここまで初期化
+
+
+      informationElement = class {// お知らせを追加できるよ！
+        constructor(contents = "", limit = 10 * 1000) {// お知らせの内容+お知らせが消えるまでのミリ秒
+          this.contents = contents;
+          this.limit = limit;
+          this.element = document.createElement("div");
+          this.element.textContent = this.contents;
+          elementsInformationContents.forEach(element => element.appendChild(this.element));
+          setTimeout(() => { elementFadeout(this.element); }, this.limit);
+        }
+      }
+      historyElement = class {// 過去のお知らせを追加できるよ！
+        constructor(contents = "") {// お知らせの内容
+          this.contents = contents;
+          this.element = document.createElement("div");
+          this.element.textContent = this.contents;
+          elementPageHistoryContents.insertBefore(this.element, elementPageHistoryContents.firstChild);
+        }
+      }
+      // ここまでDOM読み込み後の代入
+
+
+      document.body.style.visibility = "visible";// ここで始めて全体表示
+    })();
+  </script>
+  <script>
+    (() => {
+      const elementMainChild = document.querySelectorAll("main>*")[0];
+      const elementsTop = document.querySelectorAll(".top") ?? [];
+      let top = elementMainChild.offsetTop;
+      elementsTop.forEach(e => e.style.top = `${top}px`);
+    })();
+
+    const config = (() => {
+      let day = 0n;
+      return {
+        url: `${location.protocol}//${location.host}${location.pathname}`,
+        option: ["アーーー", "グダ", "ー！", "グダグダー！", "アグダー！", "アグダーは", "日育った", 10, 6],
+        sumple: {
+          tukutuku: ["ジーーー", "ツク", "ボーシ！", "ツクツクボーシ！", "ウイヨース！", "蝉は", "日生きた", 10, 6],
+          agder: ["アーーー", "グダ", "ー！", "グダグダー！", "アグダー！", "アグダーは", "日育った", 10, 6],
+          panipannji: ["uuum", "やぁ", "ﾉｰｼ!", "やぁやぁﾉｼ!", "ワカラーン！", "彼は", "日投獄された", 10, 6],
+        },
+        state: 0,// [end, start, stop]
+        limitMillisecond: 0,// limitCountごとにsetTimeoutで遅延するミリ秒
+        limitCount: 10000,// 0秒ループのときに何回でsetTimeoutの遅延を入れるか
+        func: undefined,// ツクツクの関数
+        len: 0n,// 日数
+        get lenAll() { return day; },// 合計日数
+        set lenAll(value) { return adyobe.tukutukuAllDay.innerHTML = day = value; },// 合計日数
+        element: undefined,// 追記中のdiv
+        shareData: (url = config.url, text = "オリジナルのツクツクをつくりました！", title = "つくってツクツク") => {
+          return { title: title, text: text, url: url };
+        }
+      }
+    })();
+    config.option = (() => {
+      let url = (new URL(location.href)).searchParams;
+      return config.option.map((e, i) => url.get(i) ?? e);
+    })();
+    const adyobe = {
+      setInfo: (value = "") => {
+        return {
+          value: value,
+          informationElement: (new informationElement(value)).element, //お知らせ欄に追加した要素
+          historyElement: (new historyElement(value)).element, //過去のお知らせ欄に追加した要素
+        };
+      },
+      elementTukutukuContents: document.getElementById("tukutukuContents"),
+      sumpleFrom: document.getElementById("sumpleFrom"),
+      editorFrom: document.getElementById("editorFrom"),
+      outputUrl: document.getElementById("outputUrl"),
+      tukutukuAllDay: document.getElementById("tukutukuAllDay"),
+      reset: () => {
+        if (config.lenAll != 0n) {
+          if (config.state != 0) { endTukutuku(); }
+          config.lenAll = 0n;
+          adyobe.elementTukutukuContents.innerHTML = "";
+          adyobe.tukutukuAllDay.innerHTML = 0;
+          adyobe.setInfo("リセットしました。");
+        }
+      }
+    }
+    Array.prototype.slice.call(adyobe.editorFrom).map((e, i) => e.value = config.option[i]);
+
+    adyobe.sumpleFrom.addEventListener("submit", (event) => {
+      const data = new FormData(adyobe.sumpleFrom);
+      for (const entry of data) {
+        config.option = (config.sumple[entry[1]] ?? config.sumple["agder"]).concat();
+        Array.prototype.slice.call(adyobe.editorFrom).map((e, i) => e.value = config.option[i]);
+      }
+      event.preventDefault();
+    }, { passive: false });
+    function editor(target) {
+      target.removeAttribute("placeholder");
+      config.option[Array.prototype.slice.call(adyobe.editorFrom).indexOf(target)] = target.value;
+    }
+    function createUrl(event) {
+      let url = config.url;
+      const form = Array.prototype.slice.call(adyobe.editorFrom);
+      Array.prototype.slice.call(adyobe.editorFrom).forEach((e, i) => {
+        url += (i == 0 ? "?" : "&") + i + "=" + encodeURIComponent(e.value);
+      });
+      adyobe.outputUrl.value = url;
+      (async () => {
+        try {
+          await navigator.share(config.shareData(url));
+          adyobe.setInfo("共有しました。").historyElement.innerHTML += `<br><a href="${url}">${config.option}</a>`;
+        } catch (error) {
+          console.log(error);
+          new informationElement(error.message);
+          new historyElement(error);
+        }
+      })();
+      console.log(url);
+    }
+
+    document.getElementById("tukutukuButtonStart").addEventListener("click", () => {
+      console.log("start");
+      switch (config.state) {
+        case 0:
+          config.func = createTukutuku();
+        case 2:
+          config.state = 1;
+          (async () => {
+            let result = await config.func.next();
+            console.log(result);
+          })();
+          break;
+      }
+    }, { passive: true });
+    document.getElementById("tukutukuButtonStop").addEventListener("click", () => {
+      console.log("stop");
+      if (config.state == 1) {
+        config.state = 2;
+      }
+    }, { passive: true });
+    document.getElementById("tukutukuButtonEnd").addEventListener("click", () => {
+      console.log("end");
+      if (config.state == 1 || config.state == 2) { endTukutuku(); }
+    }, { passive: true });
+
+    function ChanceTukutuku() {
+      return Math.floor(Math.random() * Math.max(config.option[8], 1)) != 0;
+    }
+
+    function* tukutuku() {
+      while (true) {
+        if (ChanceTukutuku()) {
+          yield config.option[0];
+        } else {
+          return config.option[0];
+        }
+        while (ChanceTukutuku()) { yield config.option[1]; }
+        yield config.option[2];
+        while (ChanceTukutuku()) { yield config.option[3]; }
+        while (ChanceTukutuku()) { yield config.option[4]; }
+      }
+    }
+
+    function endTukutuku() {
+      config.element.innerHTML += `<br>${config.option[5]}${config.len}${config.option[6]}`;
+      adyobe.setInfo(`${config.option[5]}${config.len}${config.option[6]}`);
+      config.state = 0;
+    }
+
+    async function* intervalTukutuku() {
+      config.len = 0n;
+      let tuku = tukutuku();
+      while (true) {
+        for (let i = 0; i < config.limitCount; i++) {
+          if (config.state == 2) { yield "stop"; }
+          if (config.state == 0) { return "end"; }
+
+          // console.log(++config.len);
+          config.len++;
+          config.lenAll++;
+          let tukuResult = tuku.next();
+          config.element.textContent += tukuResult.value;
+          if (tukuResult.done) { endTukutuku(); return "end"; }
+
+          await new Promise(resolve => config.option[7] > 0 ? setTimeout(resolve, config.option[7]) : resolve());
+        }
+        await new Promise(resolve => setTimeout(resolve, config.limitMillisecond > 0 ? config.limitMillisecond : 0));
+      }
+    }
+
+    function createTukutuku() {
+      config.element = document.createElement("div");
+      adyobe.elementTukutukuContents.appendChild(config.element);
+
+      return intervalTukutuku();
+    }
+  </script>
+</body>
+
+</html>

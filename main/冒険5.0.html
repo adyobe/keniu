@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <script>console.log("(・ὢ・)見たな....")</script>
+  <title>冒険5.0</title>
+  <meta charset="utf-8">
+  <meta name="author" content="アヂョベ">
+  <meta name="description" content="やあ">
+  <meta name="keywords" content="本と箱の庭,冒険シリーズ,冒険,ああああ,勇者,ゆうしゃ,ユウシャ">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <link rel="icon" href="../assets/svg/book.svg">
+  <link rel="stylesheet" href="../assets/css/all_class_date.css">
+  <link rel="stylesheet" href="../assets/css/details_class_description.css">
+  <style>
+    .none {
+      display: none;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    #canvasWrapper {
+      margin: 0;
+      padding: 0;
+      border-width: 0;
+      width: 100vw;
+      height: 100vw;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    #canvasWrapper canvas {
+      margin: 0;
+      padding: 0;
+      border-width: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript style="color: red; font: bold; font-size: 30vw;">Javascriptを有効にしてください</noscript>
+  <div id="body" class="none">
+    <header>
+      <div class="date"></div>
+    </header>
+    <main>
+      <div id="canvasWrapper">
+        <canvas data-canvas-name="map">background map</canvas>
+        <canvas data-canvas-name="building">background building</canvas>
+        <canvas data-canvas-name="player">foreground character player</canvas>
+        <canvas data-canvas-name="effect">foreground effect</canvas>
+      </div>
+      <div>hello</div>
+    </main>
+  </div>
+  <script src="../assets/js/all_class_date.js"></script>
+  <script>
+    document.getElementById("body").classList.remove("none");
+    const Math2 = {
+      num: (text = "", string = false, NaNzero = true) => {
+        text = text.toString().replaceAll(/[^.\d]/g, "");
+        if (NaNzero && text === "") {
+          text = 0;
+        }
+        if (!string) {
+          return parseFloat(text);
+        } else {
+          return text.toString();
+        }
+      },
+    };
+  </script>
+  <script>
+    const now = {
+      touch: {
+        canMove: false,
+        start: { x: 0, y: 0, },
+        move: { x: 0, y: 0, },
+        end: { x: 0, y: 0, },
+      },
+      player: { x: 0, y: 0 },
+    };
+
+    const getCanvas = name => canvasAll.find(element => element.name === name);
+
+    const canvasWrapper = {
+      element: document.getElementById("canvasWrapper"),
+      left: document.getElementById("canvasWrapper").getBoundingClientRect().left,
+      top: document.getElementById("canvasWrapper").getBoundingClientRect().top,
+      width: document.getElementById("canvasWrapper").getBoundingClientRect().width,
+      height: document.getElementById("canvasWrapper").getBoundingClientRect().height,
+    };
+    const canvasAll = [...document.querySelectorAll("canvas")];
+    for (let i = 0; i < canvasAll.length; i++) {
+      canvasAll[i] = {
+        name: canvasAll[i].dataset.canvasName,
+        canvas: canvasAll[i],
+        ctx: canvasAll[i].getContext("2d"),
+        left: Math2.num(canvasAll[i].getBoundingClientRect().left),
+        top: Math2.num(canvasAll[i].getBoundingClientRect().top),
+        width: Math2.num(canvasAll[i].getBoundingClientRect().width),
+        height: Math2.num(canvasAll[i].getBoundingClientRect().height),
+      };
+      canvasAll[i].canvas.width = canvasAll[i].width;
+      canvasAll[i].canvas.height = canvasAll[i].height;
+      canvasAll[i].canvas.style.zIndex = i;
+      canvasAll[i].ctx.clearRect(0, 0, canvasAll[i].width, canvasAll[i].height);
+    }
+    const drow = {
+      map: {
+        first: () => {
+          let ctx = getCanvas("map").ctx;
+          let width = getCanvas("map").width;
+          let height = getCanvas("map").height;
+          let x = width / 16;
+          let y = height / 16;
+          ctx.fillStyle = "black";
+          ctx.fillRect(0, 0, width, height);
+          ctx.clearRect(x, y, 14 * x, 14 * y);
+          for (let i = 0; i < 7; i++) {
+            for (let j = 0; j < 7; j++) {
+              ctx.strokeRect((1 + 2 * i) * x, (1 + 2 * j) * y, 2 * x, 2 * y);
+            }
+          }
+        },
+      },
+      building: {
+        hoge: () => {
+        },
+      },
+      character: {
+        player: (x = 0, y = 0) => {
+          let ctx = getCanvas("player").ctx;
+          let width = getCanvas("player").width / 32;
+          let height = getCanvas("player").height / 32;
+          x = (2 * x + 1) * 2 * width;
+          y = (2 * y + 1) * 2 * height;
+          ctx.clearRect(0, 0, 32 * width, 32 * height);
+          ctx.fillStyle = "black";
+          ctx.beginPath();
+          ctx.moveTo(x + 2 * width, y + width);
+          ctx.lineTo(x + width, y + 3 * width);
+          ctx.lineTo(x + 3 * width, y + 3 * width);
+          ctx.fill();
+        },
+      },
+      effect: {
+        hoge: () => {
+        },
+      },
+    };
+    drow.map.first();
+    drow.character.player();
+
+    canvasWrapper.element.addEventListener("touchstart", (event) => {
+      let x = Math.floor((event.changedTouches[0].pageX - canvasWrapper.left) / (canvasWrapper.width / 16));
+      let y = Math.floor((event.changedTouches[0].pageY - canvasWrapper.top) / (canvasWrapper.height / 16));
+      if (!(x > 0 && x < 15 && y > 0 && y < 15)) {
+        return;
+      }
+      now.touch.start.x = x = Math.floor((x - 1) / 2);
+      now.touch.start.y = y = Math.floor((y - 1) / 2);
+      if (now.player.x == x && now.player.y == y) {
+        now.touch.canMove = true;
+        drow.character.player(x, y);
+      } else {
+        now.touch.canMove = false;
+      }
+      console.log({ x: x, y: y });
+    });
+    canvasWrapper.element.addEventListener("touchmove", (event) => {
+      event.preventDefault();
+      let x = Math.floor((event.changedTouches[0].pageX - canvasWrapper.left) / (canvasWrapper.width / 16));
+      let y = Math.floor((event.changedTouches[0].pageY - canvasWrapper.top) / (canvasWrapper.height / 16));
+      if (!(x > 0 && x < 15 && y > 0 && y < 15)) return;
+      x = Math.floor((x - 1) / 2);
+      y = Math.floor((y - 1) / 2);
+      if (now.touch.move.x == x && now.touch.move.y == y) return;
+      now.touch.move.x = x;
+      now.touch.move.y = y;
+      if (now.touch.canMove) {
+        now.player.x = x;
+        now.player.y = y;
+        drow.character.player(x, y);
+      }
+      console.log({ x: x, y: y });
+    });
+    canvasWrapper.element.addEventListener("touchend", (event) => {
+      let x = Math.floor((event.changedTouches[0].pageX - canvasWrapper.left) / (canvasWrapper.width / 16));
+      let y = Math.floor((event.changedTouches[0].pageY - canvasWrapper.top) / (canvasWrapper.height / 16));
+      if (!(x > 0 && x < 15 && y > 0 && y < 15)) {
+        return;
+      }
+      now.touch.end.x = x = Math.floor((x - 1) / 2);
+      now.touch.end.y = y = Math.floor((y - 1) / 2);
+      if (now.touch.canMove) {
+        now.player.x = x;
+        now.player.y = y;
+        drow.character.player(x, y);
+      }
+      console.log({ x: x, y: y });
+    });
+  </script>
+</body>
+
+</html>

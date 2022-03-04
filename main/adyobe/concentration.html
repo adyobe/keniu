@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <script>
+    console.log("(・ὢ・)見たな....");
+    console.log("version 1.0.0");
+    console.log("最終更新2022/03/04");
+  </script>
+  <meta charset="utf-8">
+  <meta name="author" content="アヂョベ">
+  <meta name="description" content="やあ">
+  <meta name="keywords" content="adyobe,神経衰弱,concentration">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>神経衰弱 concentration</title>
+  <script src="../../assets/js/adb.js"></script>
+  <style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      margin: 0;
+      font-size: medium;
+    }
+
+    article {
+      margin: 0;
+    }
+
+    .m {
+      margin: 0 .5rem;
+      width: 2rem;
+      text-align: center;
+    }
+
+    .m:first-child {
+      margin-left: 0;
+    }
+
+    .m:last-child {
+      margin-right: 0;
+    }
+
+    div.margin {
+      margin: 5px 0;
+    }
+
+    #output2 {
+      box-sizing: border-box;
+      background-color: aquamarine;
+      width: fit-content;
+      max-width: 100%;
+      height: fit-content;
+      border: 2px black solid;
+      overflow: auto;
+    }
+
+    #output2.complete {
+      background-color: chartreuse;
+    }
+
+    #output2>* {
+      white-space: nowrap;
+    }
+
+    #output2>*>button {
+      display: table-cell;
+      vertical-align: middle;
+      margin: .5rem;
+      height: 2rem;
+      width: 2rem;
+      text-align: center;
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+
+    #information {
+      margin-left: .5rem;
+    }
+
+    .br {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .hide {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    ul,
+    ol {
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+      padding-left: 2rem;
+    }
+
+    span.notselect {
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+
+    span.notselect::before {
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      content: attr(data-notselect-text);
+    }
+  </style>
+</head>
+
+<body>
+  <aside>
+    <article>
+      <section>
+        <h1 class="hide">説明</h1>
+        <details>
+          <summary><span class="notselect">説明</span></summary>
+          <div>
+            <ul>
+              <li>行数と列数を入力したら、自動でペアが配置されます(ペアで配置するのでマスの数は偶数にしてください)。</li>
+              <li>ペアを完成させられなかったときは手数がカウントされます。ペアが完成したときは手数は増えません。</li>
+              <li>この<button id="answerButton">諦める</button>ボタンを押すと中身が開示されますがゲームは終了します。</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+    </article>
+  </aside>
+  <main>
+    <article>
+      <section>
+        <h1>入力</h1>
+        <div class="margin">よこ × たて = マス</div>
+        <div class="margin"><input type="number" min="1" max="99" id="input1" class="m" value="1">×<input type="number" min="1" max="99" id="input2" class="m" value="1">=<span id="output1" class="m"></span></div>
+        <div class="margin"><button id="create">作成！</button><span id="information" class="br"></span></div>
+      </section>
+      <section id="outputContainer" class="hidden">
+        <div><span id="count">0手</span></div>
+        <div id="output2"></div>
+      </section>
+    </article>
+  </main>
+  <script>
+    [...document.querySelectorAll(".notselect")].forEach(e => [e.dataset.notselectText, e.textContent] = [e.textContent, ""]);
+
+    const input1_element = document.querySelector("#input1");
+    const input2_element = document.querySelector("#input2");
+    const output1_element = document.querySelector("#output1");
+    const create_element = document.querySelector("#create");
+    const information_element = document.querySelector("#information");
+    const output2_element = document.querySelector("#output2");
+    const count_element = document.querySelector("#count");
+    const outputContainer_element = document.querySelector("#outputContainer");
+    const answerButton_element = document.querySelector("#answerButton");
+
+    function information(text = "") {
+      information_element.innerHTML = "";
+      const array = text.split("\n");
+      const l = array.length - 1;
+      for (let i = 0; i < l; i++) {
+        if (array[i].length > 0) {
+          const span = document.createElement("span");
+          span.textContent = array[i];
+          information_element.appendChild(span);
+        }
+        information_element.appendChild(document.createElement("br"));
+        console.log(information_element.innerHTML);
+      }
+      const span = document.createElement("span");
+      span.textContent = array[l];
+      information_element.appendChild(span);
+      return text;
+    }
+
+    const status = {
+      row: 1,// マスの行数
+      column: 1,// マスの列数
+      cell: 1,// マスの数
+      map: [],
+      now: [],// row, column
+      preview: [],// HTMLelement
+      Turn: 0,// 前回めくった数
+      openedCell: 0,// 開けたマスの数
+      count: 0,// 現在の手数
+    }
+
+    function reset() {
+      status.openedCell = 0;
+      status.turn = 0;
+      count_element.textContent = status.count = 0;
+      status.now = [];
+      status.preview = [];
+      output2_element.innerHTML = "";
+      output2_element.classList.remove("complete");
+      outputContainer_element.classList.remove("hidden");// 最初だけ
+    }
+    function countUp() {
+      return count_element.textContent = ++status.count;
+    }
+
+    function minMax(value, min = 1, max = 99) {
+      return Math.max(min, Math.min(max, parseInt(value)));
+    }
+    function input1_function() {
+      status.column = this.value = minMax(this.value);
+      output_function();
+    }
+    function input2_function() {
+      status.row = this.value = minMax(this.value);
+      output_function();
+    }
+    function output_function() {
+      status.cell = output1_element.textContent = status.row * status.column;
+    }
+    output_function();
+    input1_element.addEventListener("change", input1_function, { passive: true });
+    input2_element.addEventListener("change", input2_function, { passive: true });
+
+    function create_function() {
+      if (status.cell % 2 != 0) {
+        // マスの数が偶数でないとき(失敗)
+        information("マスの数を偶数にしてください。");
+      } else {
+        // マスの数が偶数のとき(成功)
+        information();
+        status.map = Array(status.cell).fill().map((e, i) => Math.floor(i / 2) + 1).shuffle().map(e => { return { number: e, open: false }; }).chunk(status.column);
+        reset();// 初期化
+        for (let i = 0; i < status.row; i++) {// 列
+          const div = document.createElement("div");
+          for (let j = 0; j < status.column; j++) {// 行
+            div.appendChild(document.createElement("button"));
+          }
+          output2_element.appendChild(div);
+        }
+      }
+    }
+    create_element.addEventListener("click", create_function, { passive: true });
+
+    function matrixRowColumn(element) {
+      const p = element.parentElement;
+      const pc = [...p.children];
+      const ppc = [...p.parentElement.children];
+      return {
+        row: ppc.indexOf(p),
+        column: pc.indexOf(element),
+      };
+    }
+    function output2_function(event) {
+      const element = event.target;
+      if (element.nodeName === "BUTTON") {
+        const matrix = matrixRowColumn(element);
+        if (status.map[matrix.row][matrix.column].open) {
+          // 既に開けたマスは飛ばす
+        } else if (status.now.length == 0) {
+          // ペアの一つ目を開こうとしたとき
+          status.preview.forEach(e => e.element.textContent = "");
+          status.preview = [{ element: element, matrix: matrix }];
+          status.turn = element.textContent = status.map[matrix.row][matrix.column].number;
+          status.now = [matrix.row, matrix.column];
+        } else if (status.now[0] != matrix.row || status.now[1] != matrix.column) {
+          // ペアの二つ目で、ペアの一つ目と違うところを開こうとしたとき
+          if (status.map[matrix.row][matrix.column].number == status.turn) {
+            // ペアが揃ったとき
+            status.map[matrix.row][matrix.column].open = status.map[status.preview[0].matrix.row][status.preview[0].matrix.column].open = true;
+            status.preview = [];
+            status.openedCell += 2;
+            if (status.cell <= status.openedCell) {
+              // 全て開き終わった時
+              information("complete!");
+              output2_element.classList.add("complete");
+            }
+          } else {
+            // ペアが揃わなかったとき
+            countUp();
+            status.preview.push({ element: element, matrix: matrix });
+          }
+          element.textContent = status.map[matrix.row][matrix.column].number;
+          status.now = [];
+        } else {
+          // 前回と同じところを開こうとしたとき
+        }
+      }
+    }
+    output2_element.addEventListener("click", output2_function, { passive: true });
+
+    function answer() {
+      if (status.map.length <= 0) {
+        information("ゲームが開始されていません。");
+      } else if (status.cell > status.openedCell) {
+        [...output2_element.children].forEach((p, r) => {
+          [...p.children].forEach((e, c) => {
+            const cell = status.map[r][c];
+            if (!cell.open) {
+              e.style.backgroundColor = "pink";
+              e.textContent = cell.number;
+              cell.open = true;
+            }
+          });
+        });
+        information("failde……");
+      }
+    }
+    answerButton_element.addEventListener("click", answer, { passive: true });
+  </script>
+</body>
+
+</html>

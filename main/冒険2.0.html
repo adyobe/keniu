@@ -1,0 +1,721 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <script>console.log("(・ὢ・)見たな....")</script>
+  <!-- LINE Tag Base Code -->
+  <!-- Do Not Modify -->
+  <script>
+      (function (g, d, o) {
+        g._ltq = g._ltq || []; g._lt = g._lt || function () { g._ltq.push(arguments) };
+        var h = location.protocol === 'https:' ? 'https://d.line-scdn.net' : 'http://d.line-cdn.net';
+        var s = d.createElement('script'); s.async = 1;
+        s.src = o || h + '/n/line_tag/public/release/v1/lt.js';
+        var t = d.getElementsByTagName('script')[0]; t.parentNode.insertBefore(s, t);
+      })(window, document);
+    _lt('init', {
+      customerType: 'account',
+      tagId: '31e6eaa0-0503-4711-9940-9716a1439ba6'
+    });
+    _lt('send', 'pv', ['31e6eaa0-0503-4711-9940-9716a1439ba6']);
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://tr.line.me/tag.gif?c_t=lap&t_id=31e6eaa0-0503-4711-9940-9716a1439ba6&e=pv&noscript=1" />
+  </noscript>
+  <!-- End LINE Tag Base Code -->
+  <script>
+    _lt('send', 'cv', {
+      type: 'Conversion'
+    }, ['31e6eaa0-0503-4711-9940-9716a1439ba6']);
+  </script>
+
+  <title>冒険2.0</title>
+  <meta charset=”utf-8″>
+  <meta name="description" content="何見てんだ">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIBAMAAAA2IaO4AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAElBMVEUAAAD/AAD/agD/2AD/9cb////TJc06AAAAAXRSTlMAQObYZgAAAAFiS0dEBfhv6ccAAAAHdElNRQflAwcFLhKuX9h3AAAAIElEQVQI12NgYGQAAiYBIMGsACOUDYCEiRGIcAZxjRgAGC0B3wrW1OEAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjEtMDMtMDdUMDU6NDY6MTgrMDA6MDAatoLBAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIxLTAzLTA3VDA1OjQ2OjE4KzAwOjAwa+s6fQAAAABJRU5ErkJggg==">
+  <style>
+    body {
+      background: #eeeeee;
+      font-family: 'YuGothic', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', 'Meiryo', 'ＭＳ ゴシック', sans-serif;
+    }
+
+    .status {
+      font-size: 80%;
+    }
+
+    button {
+      min-width: 6em;
+    }
+
+    .status {
+      text-align: center;
+      white-space: nowrap;
+      overflow: auto;
+      letter-spacing: -.4em;
+    }
+
+    .status>div {
+      background-color: white;
+      width: 22.5%;
+      padding: 0.3%;
+      margin: 0.3%;
+      border: 2px solid;
+      border-color: #222;
+      border-radius: 4px;
+      display: inline-block;
+      overflow: auto;
+      letter-spacing: normal;
+    }
+
+    .status>div>div {
+      white-space: nowrap;
+    }
+
+    .status>div>div.yoko {
+      float: left;
+      clear: left;
+      width: 1.9em;
+      text-align: center;
+    }
+
+    .status>div>div.yoko+div {
+      text-align: left;
+    }
+
+    summary {
+      display: block;
+      background: aquamarine;
+      color: black;
+      border: 1px solid black;
+      border-radius: 8px;
+      padding-left: 1em;
+      padding-right: 1em;
+      text-align: center;
+      display: inline-flex;
+      margin: 4px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details[open] summary+div {
+      animation: fadeIn 0.5s ease;
+      border: 1px solid black;
+      margin-bottom: 4px;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @-webkit-keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    #saveload {
+      opacity: 0;
+    }
+
+    #saveload.saveload {
+      opacity: 1;
+      animation: fadeOut 1s 0.6s ease-in;
+    }
+
+    #main {
+      animation: fadeIn 0.5s ease;
+    }
+  </style>
+  <script>var kco = 0; const kup = (a = 1) => { a == -1 ? 0 : a == 3 ? document.getElementById("kcount").innerHTML = kcount : a == 1 ? kco++ : kcount++; };</script>
+</head>
+
+<body>
+  <header>
+    <noscript style="color:red;font-size: 128px;">Javascriptを有効にしてください</noscript>
+    <section>
+      <div id="date"><span>00月00日00時00分00</span>秒</div>
+      <!-- <div>
+      <details>
+        <summary>開く</summary>
+        <div class="details">
+          <div>a</div>
+        </div>
+      </details>
+    </div> -->
+      <script>
+        const date = () => {
+          let now = new Date();
+          document.getElementById("date").children[0].innerHTML = now.getMonth() + 1 + "月" + now.getDate() + "日" + now.getHours() + "時" + now.getMinutes() + "分" + now.getSeconds();
+        };
+        date();
+        setInterval(date, 100);
+      </script>
+    </section>
+  </header>
+  <button onclick='document.getElementById("main").removeAttribute("style");this.style.display="none"'>冒険を始める</button>
+  <section id="main" style="display: none;">
+    <div class="status">
+      <div>
+        <div style="text-align: center;">a</div>
+        <div class="yoko">職</div>
+        <div>a</div>
+        <div class="yoko">Lv</div>
+        <div>a</div>
+        <div class="yoko">HP</div>
+        <div>a</div>
+        <div class="yoko">&nbsp;</div>
+        <div>a</div>
+        <div class="yoko">MP</div>
+        <div>a</div>
+        <div class="yoko">&nbsp;</div>
+        <div>a</div>
+        <div class="yoko">力</div>
+        <div>a</div>
+        <div class="yoko">守</div>
+        <div>a</div>
+        <div class="yoko">魔</div>
+        <div>a</div>
+        <div class="yoko">運</div>
+        <div>a</div>
+      </div>
+      <div>
+        <div style="text-align: center;">a</div>
+        <div class="yoko">職</div>
+        <div>a</div>
+        <div class="yoko">Lv</div>
+        <div>a</div>
+        <div class="yoko">HP</div>
+        <div>a</div>
+        <div class="yoko">&nbsp;</div>
+        <div>a</div>
+        <div class="yoko">MP</div>
+        <div>a</div>
+        <div class="yoko">&nbsp;</div>
+        <div>a</div>
+        <div class="yoko">力</div>
+        <div>a</div>
+        <div class="yoko">守</div>
+        <div>a</div>
+        <div class="yoko">魔</div>
+        <div>a</div>
+        <div class="yoko">運</div>
+        <div>a</div>
+      </div>
+      <div>
+        <div style="text-align: center;">a</div>
+        <div class="yoko">職</div>
+        <div>a</div>
+        <div class="yoko">Lv</div>
+        <div>a</div>
+        <div class="yoko">HP</div>
+        <div>a</div>
+        <div class="yoko">&nbsp;</div>
+        <div>a</div>
+        <div class="yoko">MP</div>
+        <div>a</div>
+        <div class="yoko">&nbsp;</div>
+        <div>a</div>
+        <div class="yoko">力</div>
+        <div>a</div>
+        <div class="yoko">守</div>
+        <div>a</div>
+        <div class="yoko">魔</div>
+        <div>a</div>
+        <div class="yoko">運</div>
+        <div>a</div>
+      </div>
+      <div>
+        <div style="text-align: center;">a</div>
+        <div class="yoko">職</div>
+        <div>a</div>
+        <div class="yoko">Lv</div>
+        <div>a</div>
+        <div class="yoko">HP</div>
+        <div>a</div>
+        <div class="yoko">&nbsp;</div>
+        <div>a</div>
+        <div class="yoko">MP</div>
+        <div>a</div>
+        <div class="yoko">&nbsp;</div>
+        <div>a</div>
+        <div class="yoko">力</div>
+        <div>a</div>
+        <div class="yoko">守</div>
+        <div>a</div>
+        <div class="yoko">魔</div>
+        <div>a</div>
+        <div class="yoko">運</div>
+        <div>a</div>
+      </div>
+    </div>
+    <div id="event">
+      <!-- 0セリフ兼セーブアンドロード -->
+      <div>
+        <!-- 「こんにちは」 -->
+        <button style="min-width: 4ex;" onclick="if(saveload1==0){saveload1++;savedata.value=save();try{navigator.clipboard.writeText(savedata.value)}catch(error){alert(erase)};saveload.innerHTML='コピーしました';saveload.setAttribute('class', 'saveload')}">save</button>
+        <button style="min-width: 4ex;" onclick="if(saveload1==0){saveload1++;saveload.innerHTML=(load()==0?'ロードしました':'このデータはロードできません');saveload.setAttribute('class', 'saveload')}">load</button><span id="saveload"></span><br><input type="text" id="savedata">
+      </div>
+      <!-- 1敵の情報 -->
+      <div>
+        <div id="teki">
+          <span id="ename">a</span>が現れた
+          残りHP:<span id="ehp">1</span>
+          <div>
+            これまでに<span id="kcount">0</span>体倒した。
+          </div>
+        </div>
+      </div>
+      <!-- 2コマンド入力 -->
+      <div>
+        <div>
+          <span id="player">あなた</span>の行動
+        </div>
+        <button onclick="f[10][1]()">攻撃</button>
+        <button onclick="f[10][2]()">回復</button>
+      </div>
+      <!-- 3誰のステータス？ -->
+      <div>
+        <span id="who">誰か</span>のステータスを決めよう
+      </div>
+      <!-- 4名前入力 -->
+      <div>
+        <label for="nameinput">名前を入力してください</label>
+        <br>
+        <input id="nameinput" type="text" required placeholder="1~6文字を入力">
+        <button onclick='document.getElementById("nameinput").value.length<NC[0]?document.getElementById("nameinput").placeholder="一文字以上を入力":document.getElementById("nameinput").value.length>NC[1]?(a=>{document.getElementById("nameinput").placeholder="六文字以内を入力";document.getElementById("nameinput").value=""})():!/\S/.test(document.getElementById("nameinput").value)?(a=>{document.getElementById("nameinput").placeholder="この名前は使えません";document.getElementById("nameinput").value=""})():(a=>{adds(0,document.getElementById("nameinput").value);fu()})()'>決定</button>
+      </div>
+      <!-- 5職業選択 -->
+      <div>
+        <div>
+          <div>職業を選んでください</div>
+          <button onclick="adds(8,1);fu()">　戦士　</button>
+          <button onclick="adds(8,2);fu()">魔法使い</button>
+          <button onclick="adds(8,3);youjo++;fu()" class="youjo">幼女</button>
+          <details>
+            <summary>詳細</summary>
+            <div>
+              <div>　戦士　 攻撃に秀でている</div>
+              <div>魔法使い 耐久に優れている</div>
+              <div class="youjo">　幼女　 目標にされている</div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <div>
+        <!-- 6誰を倒したの  -->
+        <div id="yatta"></div>
+        <div id="yarareta"></div>
+      </div>
+      <div>
+        <!-- 7やられた -->
+        <div id="deathmessage">もうだめ</div>
+        <div style="border: black solid 3px;border-radius: 4px;display: inline-block; padding-left: 3px; padding-right: 3px;">闇に閉ざされた</div>
+      </div>
+      <div>
+        <!-- 8我々の勝利だ！ -->
+        <div>世界は開かれた</div>
+      </div>
+      <div>
+        <!-- 9結果表示 -->
+        <div>・結果<br>今までに倒した数<span id="writekc">0</span></div>
+        <div>
+          <button onclick="yy();document.getElementById('deathmessage').innerHTML = 'もうだめ';character[character.length-1][1] = character[character.length-1][9];for(let i = 0; i < 4; i++){character[i] = [character[i][0], 20, 10, character[i][8] == 1 ? 20 : 10, character[i][8] == 2 ? 20 : 10, 10, character[i][8] == 3 ? 20 : 1, 1, character[i][8], 20, 10, character[i][11], i];wris(i);}for (let i = 4; i < character.length; i++) {character[i][1] = character[i][9];}whoe((n = 1) + (n < 2 ? 3 : n < 5 ? 2 : n < 9 ? 0 : n > 9 ? -2 : -1));battle(0);change(0, 1, 2, 6)">続きから</button>
+          <button onclick="fc(1)">初めから</button>
+          <div>※倒した数のみ引き継がれます</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // document.getElementById("main").removeAttribute("style");
+    for (let i of document.getElementsByClassName("youjo")) {
+      i.style.display = "none";
+    }
+    /*変数の定義*/
+    var character = [];
+    var player = 0;/*選択中の味方キャラ*/
+    var enemy = 0;/*出現中の敵キャラ*/
+    var youjo = 0;/*幼女の人数*/
+    var n = 0;/*出現順に敵の番号*/
+    var kcount = 0;/*kill count たおした敵の数累計*/
+    const savedata = document.getElementById("savedata");
+    const saveload = document.getElementById("saveload");
+    var saveload1 = 0;
+    /*style*/
+    saveload.addEventListener('animationend', () => { saveload.removeAttribute('class'); saveload1 = 0 });
+    /*関数の定義*/
+    const event = a => document.getElementById("event").children[a];/*event*/
+    const reme = a => { event(a).style.display = "none"; };/*remove event*/
+    const adde = a => { event(a).removeAttribute("style"); };/*add event*/
+    const change = (...a) => {
+      for (let i = 0; i < document.getElementById("event").children.length; i++) { reme(i); }
+      for (let i of a) { adde(i); }
+    };/*a番目のeventのみ表示、複数指定可能*/
+    const wris = a => { for (let i = 0; i < 11; i++) { document.getElementsByClassName('status')[0].children[character[a][12]].children[2 * i].innerHTML = character[a][i == 0 ? 0 : i == 1 ? 11 : i == 2 ? 7 : i == 3 ? 1 : i == 5 ? 2 : i < 7 ? 7 + i / 2 : i - 4]; } };/*write status a番目のステータス表示を更新する*/
+
+    const addc = (name = "名無し", hp = 0, mp = 0, str = 0, def = 0, mnd = 0, luk = 0, lv = 0, role = 0, maxhp, maxmp, rolename = "無職", box = 4) => { character.push([name, hp, mp, str, def, mnd, luk, lv, role, maxhp || hp || 0, maxmp || mp || 0, rolename, box]); };/*boxは何番目の欄か*/
+    // const damage = (a, b) => { return Math.floor((character[a][3] ** 2) / (character[b][4] == 0 ? 0.1 : character[b][4]) + Math.max(Math.random() * character[a][3] - Math.random() * character[b][4], 0) / 10) * (3 ** (Math.floor(Math.random() * character[b][6]) == 0 ? 1 : 0 - Math.floor(Math.random() * character[a][6]) == 0 ? 1 : 0)); };
+    const damage = (a, b, c = 1.5) => { return ~~Math.max((Math.max(character[a][3] - character[b][4], 0) + 2 - ~~(Math.random() * 5)) * ((~~(Math.random() * 100) < character[a][6]) ? c : 1), 0) };/*aがbに何ダメージ与えるかを返す*/
+    const x = (a = 3) => { return ~~((Math.sqrt(4 * a * (a + 1) * Math.random() + 1) - 1) / 2) };/*xp 3をよく使うステータス幅 (4*a**2+4*a) ((2*a+1)**2-1) Math.round(Math.sqrt(4 * a * (a + 1) * Math.random() + 1) / 2)*/
+    const lxp = () => {
+      for (let i = 0, xp; i < 4; i++) {
+        for (let lv = ~~(character[enemy][6] + ~~(100 * Math.random()) * character[i][6] / 100); lv > 0; lv--) {
+          character[i][7]++;
+          for (let j = 1; j < 6; j++) {
+            xp = x(Math.max(character[i][6], 3));
+            character[i][j] += xp;
+            if (j < 3) {
+              character[i][j + 8] += xp;
+            }
+          }
+          xp = x(Math.max(character[i][6], 3));
+          switch (character[i][8]) {
+            case 1:
+              character[i][1] += xp * 3;
+              character[i][3] += xp * 2;
+              character[i][9] += xp * 3;
+              break;
+            case 2:
+              character[i][2] += xp * 3;
+              character[i][4] += xp * 2;
+              character[i][10] += xp * 3;
+              break;
+            case 3:
+              character[i][6] += x();
+              break;
+            default:
+              console.log('ふへへ');
+              break;
+          }
+        }
+        wris(i);
+      }
+    };/*damageのLv経験値版*/
+
+    const adds = (a, b) => {
+      character[player][a] = b;
+      if (a == 8) {
+        switch (b) {
+          case 1:
+            character[player][3] += 10;
+            character[player][11] = "戦士";
+            break;
+          case 2:
+            character[player][4] += 10;
+            character[player][11] = "魔法使い";
+            break;
+          case 3:
+            character[player][6] = 20;
+            character[player][11] = "幼女";
+            break;
+          default:
+            character[player][11] = "無職";
+            break;
+        }
+      }
+      character[player][12] < 4 && wris(player);
+    };/*add status 現在のキャラの配列のステータスを書き換える*/
+
+    const who = a => {
+      player = a;
+      let i = character[player][12];
+      document.getElementById("who").innerHTML = i == 0 ? "あなた" : i == 1 ? "一人目の仲間" : i == 2 ? "二人目の仲間" : i == 3 ? "三人目の仲間" : "誰か";
+      if (i == 1 || i == 2 || i == 3) {
+        for (let j of document.getElementsByClassName("youjo")) {
+          j.removeAttribute("style");
+        }
+      } else {
+        for (let j of document.getElementsByClassName("youjo")) {
+          j.style.display = "none";
+        }
+      }
+    };
+    const whoe = a => {
+      enemy = a;
+      document.getElementById("ename").innerHTML = character[enemy][0];
+      document.getElementById("ehp").innerHTML = character[enemy][1];
+    };/*who enemy*/
+    const battle = a => {
+      whoe(enemy);
+      wris(player);
+      typeof a === "undefined" ? (++player > 3) && (player = 0) : player = a;
+      document.getElementById("player").innerHTML = character[player][0];
+    };
+    const yoyoyo = (a = 1) => {
+      if (character[0][0] !== "パニパンジ") {
+        let l = 1;
+        for (let k = 0; k < a; k++) {
+          if (~~(Math.random() * 100) < youjo) {
+            document.getElementById("deathmessage").innerHTML = "やあ"
+            for (let i = 0; i < 4; i++) {
+              if (character[i][8] == 3) {
+                for (let j = 1; j < 11; j++) { character[i][j] = 0 }
+                character[i][8] = 3;
+                wris(i);
+              }
+            }
+            document.getElementById("writekc").innerHTML = kcount;
+            change(0, 7, 9);
+            l = 2;
+          }
+        }
+        return l;
+      } else {
+        return 0;
+      }
+    };/*youjoチェック*/
+    const save = () => {
+      let d = [[], [""], [""], [""]];
+      for (const i of character) {
+        let k;
+        for (const j of i) {
+          k = j.toString();
+          for (let l = 0; l < k.length; l++) {
+            d[0][l] = k.charCodeAt(l).toString(32);
+          }
+          d[1][1] = d[0].join("z");
+          d[0] = [];
+          d[1][0] = d[1].join("y");
+        }
+        d[2][1] = d[1][0].substr(1);
+        d[1] = [""];
+        d[2][0] = d[2].join("x");
+      }
+      d[2][0] = d[2][0].substr(1);
+      d[2][1] = player;
+      d[2][0] = d[2].join("w");
+      d[2][1] = n;
+      d[2][0] = d[2].join("w");
+      d[2][1] = eval("kcount".substr(0, 6));
+      d[2][0] = d[2].join("w");
+      d[2][1] = eval("kcount".substr(0, 3));
+      d[2][0] = d[2].join("w");
+      for (let i = d[2][1] = 0; i < d[2][0].length; i++) { d[2][1] = (d[2][1] + d[2][0].charCodeAt(i)) % (10 ** 10) }
+      return d[2][0] = d[2].join("a");
+    };/*saveする*/
+    const load = (a = savedata.value) => {
+      if (a != "") {
+        let d = 0;
+        for (let i = 0; i < a.slice(0, a.lastIndexOf("a")).length; i++) { d = (d + a.charCodeAt(i)) % (10 ** 10) }
+        let q = [[]];
+        if (a.slice(1 + a.lastIndexOf("a")) - 0 == d) {
+          /*書き出し*/
+          q = a.slice(0, a.lastIndexOf("a")).split("w");
+          q[0] = q[0].split("x");
+          for (let j = 0; j < q[0].length; j++) {
+            q[0][j] = q[0][j].split("y");
+            for (let k = 0; k < q[0][j].length; k++) {
+              q[0][j][k] = q[0][j][k].split("z");
+              for (let l = 0; l < q[0][j][k].length; l++) {
+                q[0][j][k][l] = parseInt(q[0][j][k][l], 32);
+              }
+              q[0][j][k] = String.fromCharCode.apply(null, q[0][j][k]);
+              if (k > 0 && k != 11) {
+                q[0][j][k] = q[0][j][k] - 0;
+              }
+            }
+          }
+          for (let i = 1; i < q.length; i++) { q[i] -= 0 }
+          /*書き込み*/
+          fc(1);
+          for (let i = 0; i < q[0].length; i++) {
+            character[i] = q[0][i];
+          }
+          who(q[1]);
+          document.getElementById("kcount").innerHTML = q[3];
+          eval("kcount".substr(0, 6) + " = q[3]");
+          eval("kcount".substr(0, 3) + " = q[4]");
+          ((n = q[2]) < 13) ? whoe(n + (n < 2 ? 3 : n < 5 ? 2 : n < 9 ? 0 : n > 9 ? -2 : -1)) : f[11]();
+          change(0, 1, 2, 6);
+          for (let i = 0; i < 4; i++) {
+            wris(i);
+            (character[i][8] == 3) && (youjo++);
+            if (character[i][1] <= 0) {
+              document.getElementById("deathmessage").innerHTML = "もうだめ";
+              document.getElementById("writekc").innerHTML = kcount;
+              change(0, 7, 9);
+            }
+            if (character[character.length - 1][1] == 0) {
+              f[11]();
+            } else {
+              character[character.length - 1][1] = character[character.length - 1][9];
+            }
+          }
+          document.getElementById("player").innerHTML = character[player][0];
+          return 0;
+        } else return 1;
+      } else return 1;
+    };/*loadする*/
+    const yy = () => {
+      document.getElementById("yatta").innerHTML = "";
+      document.getElementById("yarareta").innerHTML = "";
+    }/*yatta yarareta 初期化*/
+    /*フラグ管理*/
+    var f = [0];/*flag*/
+    const fc = a => {
+      f[0] = Math.max(~~a, 1);
+      f[f[0]]();
+    };/*flag change*/
+    const fu = b => {
+      f[++f[0]]();
+    };/*flag up*/
+    f[1] = b => {
+      character[character.length - 1][1] = character[character.length - 1][9];
+      document.getElementById("deathmessage").innerHTML = "もうだめ";
+      yy();
+      change(3, 4);
+      who(0);
+      for (let i = 0; i < 4; i++) {
+        character[i] = ["名無し", 20, 10, 10, 10, 10, 1, 1, 0, 20, 10, "無職", i];
+        wris(i);
+      }
+      for (let i = 4; i < character.length; i++) {
+        character[i][1] = character[i][9];
+      }
+      NCc(1, 6);
+      player = youjo = n = 0;
+      enemy = 4;
+      f[0] = 1
+    };
+    f[2] = f[4] = f[6] = f[8] = b => {
+      change(3, 5);
+    };
+    f[3] = f[5] = f[7] = b => {
+      who(++player);
+      NCc(1, 6);
+      change(3, 4);
+    };
+    f[9] = b => {
+      whoe(++n + (n < 2 ? 3 : n < 5 ? 2 : n < 9 ? 0 : n > 9 ? -2 : -1));
+      battle(0);
+      change(0, 1, 2, 6)
+    };
+    f[10] = [0, 1, 2, 3];
+    f[10][0] = b => {
+      lxp();
+      kup();
+      document.getElementById("yatta").innerHTML = character[enemy][0] + "をたおした！";
+      kup(Math.random());
+      character[enemy][1] = character[enemy][9];
+      kup(3);
+      battle();
+      kup(-1);
+      ++n < 13 ? whoe(n + (n < 2 ? 3 : n < 5 ? 2 : n < 9 ? 0 : n > 9 ? -2 : -1)) : f[11]();
+    };
+    f[10][1] = b => {
+      if (yoyoyo(1 * character[enemy][2]) != 2) {
+        character[enemy][1] = Math.max(character[enemy][1] - damage(player, enemy), 0);
+        if (character[enemy][1] > 0) {
+          f[10][3]();
+        } else {
+          f[10][0]();
+        }
+      }
+    };
+    f[10][2] = b => {
+      if (yoyoyo(2 * character[enemy][2]) != 2) {
+        let j = 0;
+        for (let i = 0; i < 4; i++) {
+          j += character[i][7];
+        }
+        if (j <= character[player][2]) {
+          for (let i = 0; i < 4; i++) {
+            character[i][1] = character[i][9];
+            wris(i);
+          }
+          character[player][2] -= j;
+        } else {
+          character[player][2] = Math.min(~~(character[player][2] + character[player][10] * 0.3 + 10), character[player][10]);
+        }
+        f[10][3]();
+      }
+    };
+    f[10][3] = b => {
+      character[player][1] = Math.max(character[player][1] - damage(enemy, player), 0);
+      if (character[player][1] <= 0) {
+        document.getElementById("yarareta").innerHTML = character[player][0] + "はたおれた！";
+        document.getElementById("writekc").innerHTML = kcount;
+        change(0, 7, 9);
+      }
+      battle();
+    };
+    f[11] = b => {
+      character[character.length - 1][1] = 0;
+      document.getElementById("writekc").innerHTML = kcount;
+      change(0, 8, 9);
+    };
+    /*その他*/
+    var NC = [1, 6];/*Name Count名前入力の最小最大 基本変えないから大文字*/
+    const NCc = (a, b) => {
+      NC[a] = b;
+      document.getElementById("nameinput").placeholder = NC[0] + "~" + NC[1] + "文字を入力";
+      document.getElementById("nameinput").value = "";
+    };/*Name Count change*/
+    /*メイン*/
+    // change(0);
+    var ad = [[]];
+    window.addEventListener('beforeunload', function (event) {
+      if (ad[0] !== 1) {
+        event.preventDefault();
+        event.returnValue = 0;
+      }
+    });
+    for (let i = 0; i < 4; i++) { addc(); }/*仲間たちを登録 1~4*/
+    fu();
+    addc("スライム", 10, 1, 2, 20, 0, 1);
+    addc("あかスライム", 20, 1, 25, 25, 0, 2);/*5*/
+    addc("こうもり", 20, 1, 30, 30, 0, 3);
+    addc("むれこうもり", 100, 1, 60, 60, 0, 15);
+    addc("ゾンビ", 800, 1, 100, 20, 0, 10);
+    addc("つよつよスライム", 100, 10, 10, 250, 0, 30);
+    addc("魔王", 4500, 20, 250, 250, 0, 300, 100);/*10*/
+    /* 4, 4, 5, 6, 5, 6, 7, 8, 8, 8, 9,10*/
+    /*enemy=n + ++n<2?3:n<5?2:n<9?0:n>9?-2:-1*/
+    /*作成用 多分この括弧の中に入れとけば外の変数に影響はなさそう*/
+    // (a => {
+    //   let j = [];
+    //   for (let i = 0; i < document.getElementById("event").children.length; i++) j.push(i);
+    //   change(...j);
+    // })();
+  </script>
+</body>
+
+</html>

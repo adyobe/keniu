@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <!-- LINE Tag Base Code -->
+  <!-- Do Not Modify -->
+  <script>
+    (function (g, d, o) {
+      g._ltq = g._ltq || []; g._lt = g._lt || function () { g._ltq.push(arguments) };
+      var h = location.protocol === 'https:' ? 'https://d.line-scdn.net' : 'http://d.line-cdn.net';
+      var s = d.createElement('script'); s.async = 1;
+      s.src = o || h + '/n/line_tag/public/release/v1/lt.js';
+      var t = d.getElementsByTagName('script')[0]; t.parentNode.insertBefore(s, t);
+    })(window, document);
+    _lt('init', {
+      customerType: 'account',
+      tagId: '31e6eaa0-0503-4711-9940-9716a1439ba6'
+    });
+    _lt('send', 'pv', ['31e6eaa0-0503-4711-9940-9716a1439ba6']);
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://tr.line.me/tag.gif?c_t=lap&t_id=31e6eaa0-0503-4711-9940-9716a1439ba6&e=pv&noscript=1" />
+  </noscript>
+  <!-- End LINE Tag Base Code -->
+  <script>
+    _lt('send', 'cv', {
+      type: 'Conversion'
+    }, ['31e6eaa0-0503-4711-9940-9716a1439ba6']);
+  </script>
+
+  <title>基礎1.0.1</title>
+  <meta http-equiv="content-language" content="ja">
+  <meta charset=”utf-8″>
+  <meta name="keywords" content="keyword,キーワード,きーわーど">
+  <meta name="description" content="これはこのページの説明です。">
+  <meta name="author" content="© 2021 私が作りました。">
+  <meta name="reply-to" content="email@example.com">
+  <meta name="date" content="別に更新日なんて気にならないだろうから記述しません。">
+  <meta name="creation_date" content="作成日も気にならないでしょ。">
+  <link rel="apple-touch-icon" sizes="180x180" href="testparticle.png">
+  <link rel="icon" href="testparticle.png">
+  <link rel="shortcut icon" href="testparticle.png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      background: #eeeeee;
+      font-family: 'YuGothic', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', 'Meiryo', 'ＭＳ ゴシック', sans-serif;
+    }
+
+    .s {
+      float: left;
+      width: 85px;
+    }
+
+    .s2 {
+      width: 255px;
+      border: 1px solid #000;
+    }
+
+    .s3 {
+      float: left;
+      clear: both;
+      width: 85px;
+    }
+  </style>
+  <script>
+    console.log("(・ὢ・)見たな....");
+  </script>
+</head>
+
+<body>
+  <h1>
+    <section>
+      <script>
+        document.currentScript.insertAdjacentHTML("beforebegin", "<div>JavaScriptは有効です。</div>");
+      </script>
+      <noscript>
+        <div>JavaScriptは無効です。</div>
+      </noscript>
+    </section>
+    <section>
+      <div><span id="nowtime">00月00日00時00分00</span>秒</div>
+      <script>
+        const nowtime = document.getElementById("nowtime");
+        var date = new Date();
+        nowtime.innerHTML = date.getMonth() + 1 + "月" + date.getDate() + "日" + date.getHours() + "時" + date.getMinutes() + "分" + date.getSeconds();
+        setInterval(() => {
+          var date = new Date();
+          nowtime.innerHTML = date.getMonth() + 1 + "月" + date.getDate() + "日" + date.getHours() + "時" + date.getMinutes() + "分" + date.getSeconds();
+        }, 100);
+      </script>
+    </section>
+  </h1>
+  <section>
+    <h2>
+      <div id="title">あなたは旅に出た！！</div>
+    </h2>
+    <div id="asobi0" class="s">ステータス</div>
+    <div id="asobi">　</div>
+    <div class="s2">
+      <strong>
+        <div class="s">あなた</div>
+      </strong>
+      <div class="s">職業</div>
+      <div id="hs0">無職</div>
+      <div class="s">HP</div>
+      <div class="s">MP</div>
+      <div>力</div>
+      <div class="s" id="hs1">10</div>
+      <div class="s" id="hs2">1</div>
+      <div id="hs3">1</div>
+      <div class="s">魔</div>
+      <div class="s">守</div>
+      <div>運</div>
+      <div class="s" id="hs4">1</div>
+      <div class="s" id="hs5">1</div>
+      <div id="hs6">1</div>
+    </div>
+    <div class="s2">
+      <strong>
+        <div id="hns" class="s">なかま</div>
+      </strong>
+      <div class="s">職業</div>
+      <div id="hns0">まだいない</div>
+      <div class="s">HP</div>
+      <div class="s">MP</div>
+      <div>力</div>
+      <div class="s" id="hns1">　</div>
+      <div class="s" id="hns2">　</div>
+      <div id="hns3">　</div>
+      <div class="s">魔</div>
+      <div class="s">守</div>
+      <div>運</div>
+      <div class="s" id="hns4">　</div>
+      <div class="s" id="hns5">　</div>
+      <div id="hns6">　</div>
+    </div>
+    <br>
+    <div id="input">
+      <div id="subtitle">職業を選ぼう！</div>
+      <div id="n">
+        <button onclick="ws(0,1);f1();">　戦士　</button>
+        <button onclick="ws(0,2);f1();">魔法使い</button>
+      </div>
+    </div>
+
+    <script>
+      const st = (a) => document.getElementById("subtitle").innerHTML = a;
+      const t = (a) => document.getElementById("title").innerHTML = mob[a][0] + "だ！";
+      const tk = (a) => document.getElementById("title").innerHTML = a;
+      const n = (a) => document.getElementById("n").innerHTML = a;
+      var s = [0, 10, 1, 1, 1, 1, 1, 10];/* 職業 現在HP 現在MP STR */
+      var ns = [0, 10, 1, 1, 1, 1, 1, 10];/* MND DEF LUK 最大HP */
+      var f = 0;
+      var k = 0;
+      var e = 0;
+      var mob = [];
+      var mhp = 0;
+      var mstr = 0;
+      var mdef = 0;
+      var p = 0;
+      var m = 0;
+      var exp = 0;
+      var r1 = 0;
+      var r2 = 0;
+      var r3 = 0;
+      var yk = 0;
+
+      var ws = (a, b) => {
+        s[a] = b;
+        document.getElementById("hs" + a).innerHTML = a > 0 ? s[a] : a == 0 && f == 0 ? s[0] == 1 ? "戦士" : s[0] == 2 ? "魔法使い" : "　" : document.getElementById("hs" + a).innerHTML;
+      };
+      var wns = (a, b) => {
+        ns[a] = b;
+        document.getElementById("hns" + a).innerHTML = a > 0 ? ns[a] : a == 0 && f == 1 ? ns[0] == 1 ? "戦士" : ns[0] == 2 ? "魔法使い" : ns[0] == 3 ? "幼女" : "　" : document.getElementById("hns" + a).innerHTML;
+      };
+      var f1 = () => {
+        f = f === 0 ? 1 : f;
+        st("仲間を選ぼう！");
+        n('<button onclick="wns(0, 1); f2(); ">ムキムキ</button> <button onclick="wns(0, 2); f2(); ">マホツカ</button> <button onclick="wns(0, 3); f2(); ">　幼女　</button>');
+      };
+      var f2 = () => {
+        f = f === 1 ? 2 : f;
+        document.getElementById("hns").innerHTML = ns[0] == 1 ? "ムキムキ" : ns[0] == 2 ? "マホツカ" : ns[0] == 3 ? "幼女" : "　";
+        if (ns[0] == 3) ns[6] = 100;
+        st("戦え！");
+        n('<span id="nam">あなた</span>の行動<br><button onclick="fn(0)">こうげき</button> <button onclick="fn(1)">にげる</button><br><div class="s3">残りHP</div><div id="whp">10</div><div class="s3">戦闘回数</div><div id="wk">0</div><div class="s3">逃亡回数</div><div id="we">0</div>');
+        sk();
+        mk(0);
+
+      };
+
+      const fn = (a) => {
+        if (a == 0) {
+          document.getElementById("wk").innerHTML = ++k;
+          dm();
+          yk = p;
+        } else {
+          document.getElementById("we").innerHTML = ++e;
+          hpr();
+          yk = 2;
+        }
+        sk();
+        youjo();
+      };
+      const mt = (name, hp, str, def, exp) => {
+        mob.push([name, hp, str, def, exp]);
+      };
+      const mk = (number) => {
+        m = number;
+        t(number);
+        document.getElementById("whp").innerHTML = mhp = mob[number][1];
+        mstr = mob[number][2];
+        mdef = mob[number][3];
+        exp = mob[number][4];
+      };
+
+      const sk = () => {
+        for (let i = 1; i < 7; i++) {
+          ws(i, s[i]);
+          wns(i, ns[i]);
+        }
+      };
+      const hpr = () => {
+        if (s[2] > 1) {
+          s[2] -= 2;
+          s[1] = s[7];
+        }
+        s[2]++;
+        if (ns[2] > 1) {
+          ns[2] -= 2;
+          ns[1] = ns[7];
+        }
+        ns[2]++;
+      };
+      const dm = () => {
+        if (p == 0) {
+          document.getElementById("nam").innerHTML = document.getElementById("hns").textContent;
+          mhp = Math.max(mhp - Math.max(Math.ceil(s[3] - mdef / 2 - s[3] / 16 + Math.random() * s[3] / 8), 0), 0);
+          document.getElementById("whp").innerHTML = mhp;
+          s[1] = Math.max(s[1] - Math.max(Math.ceil(mstr - s[5] / 2 - mstr / 16 + Math.random() * mstr / 8), 0), 0);
+          p++;
+        } else {
+          document.getElementById("nam").innerHTML = "あなた";
+          mhp = Math.max(mhp - Math.max(Math.ceil(ns[3] - mdef / 2 - ns[3] / 16 + Math.random() * ns[3] / 8), 0), 0);
+          document.getElementById("whp").innerHTML = mhp;
+          ns[1] = Math.max(ns[1] - Math.max(Math.ceil(mstr - ns[5] / 2 - mstr / 16 + Math.random() * mstr / 8), 0), 0);
+          p--;
+        }
+        if (s[1] == 0 || ns[1] == 0) death();
+        if (mhp == 0) kill();
+      };
+
+      const death = () => {
+        tk("あなたたちは" + mob[m][0] + "にまけた。");
+        document.getElementById("input").innerHTML = "旅の終わり<br>結果<br>戦闘回数 " + k + "<br>逃亡回数 " + e;
+      };
+      const kill = () => {
+        while (exp > 0) {
+          s[6] += Math.random() * 100 < s[6] ? Math.floor(Math.cbrt(ra(s[6]))) : 0;
+          s[3] += Math.floor((1 + s[6]) * Math.random()) + 2;
+          s[4] += Math.floor((1 + s[6]) * Math.random()) + 2;
+          s[5] += Math.floor((1 + s[6]) * Math.random()) + 2;
+          switch (s[0]) {
+            case 1:
+              s[3] += Math.ceil(Math.random() * Math.ceil(s[3] / 10)) + 5;
+              break;
+            case 2:
+              s[4] += Math.ceil(Math.random() * Math.ceil(s[4] / 10)) + 5;
+              s[5] += Math.ceil(Math.random() * Math.ceil(s[5] / 10)) + 5;
+              break;
+          }
+          s[7] += Math.floor(10 * (1 + s[6]) * Math.random());
+          s[2] += s[4] + Math.floor(Math.random() * s[6]);
+
+          ns[6] += Math.random() * 100 < ns[6] ? Math.floor(Math.cbrt(ra(ns[6]))) : 0;
+          ns[3] += Math.floor((1 + ns[6]) * Math.random()) + 2;
+          ns[4] += Math.floor((1 + ns[6]) * Math.random()) + 2;
+          ns[5] += Math.floor((1 + ns[6]) * Math.random()) + 2;
+          switch (ns[0]) {
+            case 1:
+              ns[3] += Math.ceil(Math.random() * Math.ceil(ns[3] / 10)) + 5;
+              ns[2] += ns[4] + Math.floor(Math.random() * ns[6]);
+              break;
+            case 2:
+              ns[4] += Math.ceil(Math.random() * Math.ceil(ns[4] / 10)) + 5;
+              ns[5] += Math.ceil(Math.random() * Math.ceil(ns[5] / 10)) + 5;
+              ns[2] += ns[4] + Math.floor(Math.random() * ns[6]);
+              break;
+            case 3:
+              ns[2] += Math.floor(ns[4] + (Math.floor(Math.random() * ns[6])) / (ns[6] ** 2));
+              break;
+          }
+          ns[7] += Math.floor(10 * (1 + ns[6]) * Math.random());
+          exp--;
+        }
+        mhp = 0;
+        matk = 0;
+        mdef = 0;
+        if (m == mob.length - 1) {
+          s[1] = s[7];
+          ns[1] = ns[7];
+          sk();
+          tk("あなたたちは勝利した！！");
+          document.getElementById("input").innerHTML = "旅の終わり<br>結果<br>戦闘回数 " + k + "<br>逃亡回数 " + e;
+        } else {
+          sk();
+          mk(++m);
+        }
+      };
+      const r4 = (a) => {
+        r3 = 0;
+        do {
+          r1 = Math.floor(Math.random() * (r2 + a + 1));
+          r2++;
+          r3++;
+        } while (r1 != 0 && r3 < 1000);
+        if (r1 != 0) {
+          setTimeout(r4(a), 1);
+        }
+      };
+      const ra = (a) => {
+        r1 = 0;
+        r2 = 0;
+        setTimeout(r4(a), 1);
+        return --r2;
+      };
+
+      var yo = 0;
+      const youjo = () => {
+        if (flag[0] == 0 && ns[0] == 3) {
+          for (let i = 0; i < yk; i++) {
+            yo = Math.max(Math.floor(Math.random() * 1000) - exp, 0);
+            if (yo == 0) {
+              for (let i = 1; i < 8; i++) {
+                ns[i] = 0;
+              }
+              sk();
+              tk("あなたたちは勝利した！！");
+              document.getElementById("input").innerHTML = "旅の終わり<br>結果<br>戦闘回数 " + k + "<br>逃亡回数 " + e;
+              return 0;
+            } else return 1;
+          }
+        }
+      };
+
+      var flag = [0];
+      /* youjo */
+
+      var asobi1 = 0;
+      document.getElementById("asobi0").onclick = () => {
+        if (++asobi1 > 9) {
+          document.getElementById("asobi").innerHTML = '<input type="text" id="asobi2"><button id="asobi3">　</button>';
+          document.getElementById("asobi3").onclick = () => eval(document.getElementById("asobi2").value);
+        }
+      };
+
+      mt("スライム", 10, 2, 2, 2);
+      mt("コウモリ", 20, 6, 6, 1);
+      mt("ゾンビ", 80, 6, 10, 3);
+      mt("スライム", 10, 2, 2, 2);
+      mt("つよつよスライム", 100, 20, 20, 5);
+      mt("魔王", 10000, 100, 100, 100);
+    </script>
+  </section>
+</body>
+
+</html>

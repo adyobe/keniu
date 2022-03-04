@@ -1,0 +1,9 @@
+.date {
+    font-size: 5vw;
+    font-family: 'Share Tech Mono', monospace;
+    padding: 4px 6px;
+    background-color: black;
+    color: blue;
+    text-shadow: 0.8px 0.8px 1px aqua, 0 0 3vw white, 0 0 0.4vw white;
+    max-inline-size: fit-content;
+  }

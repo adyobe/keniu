@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <script>console.log("(・ὢ・)見たな....")</script>
+  <title>つくってツクツク</title>
+  <meta charset="utf-8">
+  <meta name="author" content="アヂョベ">
+  <meta name="description" content="やあ">
+  <meta name="keywords" content="つくってツクツク">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    a {
+      overflow-wrap: break-word;
+    }
+
+    html {
+      height: 100vh;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    body>* {
+      padding-left: 8px;
+      padding-right: 8px;
+      margin: 0;
+      width: 100%;
+    }
+
+    body {
+      background-color: #eeeeee;
+      font-family: 'YuGothic', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', 'Meiryo', 'ＭＳ ゴシック', sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: white;
+      padding: 4px;
+      overflow: auto;
+    }
+
+    main {
+      margin-top: 1em;
+      margin-bottom: 1em;
+      flex: 1;
+    }
+
+    footer {
+      background-color: deepskyblue;
+      color: white;
+      margin-top: auto;
+    }
+
+    .hDef {
+      font-size: x-large;
+    }
+
+    nav {
+      padding: 2px 0;
+    }
+  </style>
+  <link rel="stylesheet" href="../assets/css/details_class_description.css">
+</head>
+
+<body style="visibility: none;">
+  <header>
+    <h1 class="hDef">つくってツクツク</h1>
+    <div>
+      <nav id="nav">
+        <button onclick="start();">start</button>
+        <button onclick="stop = false;">stop</button>
+        <button onclick="continued = false;">end</button>
+        <span>AllDay:<span id="allLen">0</span></span>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div id="execution" style="visibility: none;">
+      <div id="output"></div>
+    </div>
+    <div id="edit" style="visibility: none;">
+      <details class="description">
+        <summary>サンプル</summary>
+        <form id="sumpleFrom">
+          <div><label><input type="radio" name="sumple" value="tukutuku">ツクツクボーシ</label></div>
+          <div><label><input type="radio" name="sumple" value="agder">アグダーツクツク</label></div>
+          <div><label><input type="radio" name="sumple" value="panipannji">やぁやぁボーシ</label></div>
+          <div><button type="submit">サンプルを見る</button></div>
+        </form>
+      </details>
+      <form id="editorFrom" onsubmit="return false;" onchange="editor(event.target);">
+        <div><label><span style="width: 6em; display: inline-block;">一つ目</span><input type="text"></label></div>
+        <div><label><span style="width: 6em; display: inline-block;">二つ目</span><input type="text"></label></div>
+        <div><label><span style="width: 6em; display: inline-block;">三つ目</span><input type="text"></label></div>
+        <div><label><span style="width: 6em; display: inline-block;">四つ目</span><input type="text"></label></div>
+        <div><label><span style="width: 6em; display: inline-block;">五つ目</span><input type="text"></label></div>
+        <div><label><span style="width: 6em; display: inline-block;">何が</span><input type="text"></label></div>
+        <div><label><span style="width: 6em; display: inline-block;">何した？</span><input type="text"></label></div>
+        <div><label><span style="width: 6em; display: inline-block;">成長速度/s</span><input type="number" min="0" placeholder="何秒で1成長？" onchange="this.value<0?(this.value='',this.placeholder='最低値は0です'):(this.placeholder='')"></label></div>
+        <div><label><span style="width: 6em; display: inline-block;">1/終了確率</span><input type="number" min="2" placeholder="何分の1で終了？" onchange="this.value<2?(this.value='',this.placeholder='最低値は2です'):(this.placeholder='')"></label></div>
+      </form>
+      <div><button onclick="createUrl();">URLを発行する。</button></div>
+      <div><input type="text" readonly id="outputUrl"></div>
+    </div>
+  </main>
+  <footer>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">トップへ戻る</a>
+        </li>
+      </ul>
+    </nav>
+    <nav>
+      <button onclick="change();">現在は<span id="nowWindow">実行</span>モードです。</button>
+    </nav>
+    <nav>
+      <h1>参考資料</h1>
+      <ul>
+        <li>
+          <a href="https://twitter.com/windymelt/status/1424087366872956928">https://twitter.com/windymelt/status/1424087366872956928</a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script>
+    const config = {
+      element: ["アーーー", "グダ", "ー！", "グダグダー！", "アグダー！", "アグダーは", "日育った", 10, 6], //ツクツクの要素
+      sumple: {
+        tukutuku: ["ジーーー", "ツク", "ボーシ！", "ツクツクボーシ！", "ウイヨース！", "蝉は", "日生きた", 10, 6],
+        agder: ["アーーー", "グダ", "ー！", "グダグダー！", "アグダー！", "アグダーは", "日育った", 10, 6],
+        panipannji: ["uuum", "やぁ", "ﾉｰｼ!", "やぁやぁﾉｼ!", "ワカラーン！", "彼は", "日投獄された", 10, 6],
+      },
+      url: `${location.protocol}//${location.host}${location.pathname}`,
+    }
+    config.element = (() => {
+      let url = (new URL(location.href)).searchParams;
+      return config.element.map((e, i) => url.get(i) ?? e);
+    })();
+
+    const output = document.getElementById("output");
+    const nowWindow = document.getElementById("nowWindow");
+    const sumpleFrom = document.getElementById("sumpleFrom");
+    const editorFrom = document.getElementById("editorFrom");
+    const outputUrl = document.getElementById("outputUrl");
+    const navButtons = [...document.querySelectorAll("#nav>button")];
+    let nowWindowIsEdit = false; //execution, edit
+    let now = 0;
+    let continued = false;
+    let stop = true;
+    let len = 0;
+    // output.innerHTML
+    function nowup() {
+      if (Math.floor(Math.random() * config.element[8]) == 0) {
+        now = (now + 1) % 5;
+        return false;
+      } else {
+        len++;
+        return true;
+      }
+    }
+    function tukutuku(div) {
+      if (stop) {
+        switch (now) {
+          case 0:
+            div.innerHTML += config.element[0];
+            len++;
+            if (Math.floor(Math.random() * config.element[8]) == 0) {
+              continued = false;
+            } else {
+              now++;
+            }
+            break;
+          case 1:
+            if (nowup()) {
+              div.innerHTML += config.element[1];
+            }
+            break;
+          case 2:
+            div.innerHTML += config.element[2];
+            len++;
+            now++;
+            break;
+          case 3:
+            if (nowup()) {
+              div.innerHTML += config.element[3];
+            }
+            break;
+          case 4:
+            if (nowup()) {
+              div.innerHTML += config.element[4];
+            }
+            break;
+        }
+      }
+      if (continued) {
+        if (config.element[7] > 0) {
+          setTimeout(() => {
+            tukutuku(div);
+          }, config.element[7]);
+        } else {
+          tukutuku(div);
+        }
+      } else {
+        now = 0;
+        div.innerHTML += "<br>" + config.element[5] + len + config.element[6];
+        main.len = len;
+        len = 0;
+      }
+    }
+    function start() {
+      stop = true;
+      if (!continued) {
+        now = 0;
+        len = 0;
+        continued = true;
+        let div = document.createElement("div");
+        output.appendChild(div);
+        if (config.element[7] > 0) {
+          setTimeout(() => {
+            tukutuku(div);
+          }, config.element[7]);
+        } else {
+          tukutuku(div);
+        }
+      }
+    };
+    const main = (() => {
+      let lenCount = [];
+      const ElementAllDay = document.querySelectorAll("#allLen")[0];
+      return {
+        get len() {
+          return lenCount;
+        },
+        set len(value) {
+          lenCount.push(value);
+          ElementAllDay.innerHTML = lenCount.reduce((p, c) => p + c);
+          return value;
+        },
+        reset: () => {
+          lenCount = [];
+          output.innerHTML = "";
+          ElementAllDay.innerHTML = 0;
+          return true;
+        },
+      }
+    })();
+
+
+
+    function change() {
+      if (nowWindowIsEdit) {
+        nowWindowIsEdit = false;
+        nowWindow.textContent = "実行";
+
+        document.querySelectorAll("#execution")[0].style.display = null;
+        document.querySelectorAll("#edit")[0].style.display = "none";
+        navButtons.forEach(e => e.removeAttribute("disabled"));
+      } else {
+        nowWindowIsEdit = true;
+        nowWindow.textContent = "編集";
+
+        document.querySelectorAll("#execution")[0].style.display = "none";
+        document.querySelectorAll("#edit")[0].style.display = null;
+        navButtons.forEach(e => e.setAttribute("disabled", true));
+      }
+    }
+    sumpleFrom.addEventListener("submit", (event) => {
+      const data = new FormData(sumpleFrom);
+      for (const entry of data) {
+        config.element = (config.sumple[entry[1]] ?? config.sumple["agder"]).concat();
+        Array.prototype.slice.call(editorFrom).map((e, i) => e.value = config.element[i]);
+      }
+      main.reset();
+      event.preventDefault();
+    }, { passive: false });
+    function editor(target) {
+      target.removeAttribute("placeholder");
+      config.element[Array.prototype.slice.call(editorFrom).indexOf(target)] = target.value;
+      main.reset();
+    }
+    function createUrl(event) {
+      let url = config.url;
+      const form = Array.prototype.slice.call(editorFrom);
+      const filter = form.filter(e => e.value.length == 0);
+      if (filter.length == 0) {
+        Array.prototype.slice.call(editorFrom).forEach((e, i) => {
+          url += (i == 0 ? "?" : "&") + i + "=" + encodeURIComponent(e.value);
+        });
+        outputUrl.value = url;
+        console.log(url);
+      } else {
+        filter.forEach(e => e.placeholder = "値を設定してください");
+      }
+    }
+
+
+
+    // window.addEventListener("beforeunload", (event) => { event.preventDefault(); event.returnValue = ""; }, { passive: false });
+    window.addEventListener("load", () => {
+      document.body.style.paddingTop = document.querySelectorAll("header")[0].offsetHeight + "px";
+      if (nowWindowIsEdit) {
+        document.querySelectorAll("#execution")[0].style.display = "none";
+        document.querySelectorAll("#edit")[0].style.display = null;
+        navButtons.forEach(e => e.setAttribute("disabled", true));
+      } else {
+        document.querySelectorAll("#execution")[0].style.display = null;
+        document.querySelectorAll("#edit")[0].style.display = "none";
+        navButtons.forEach(e => e.removeAttribute("disabled"));
+      }
+      document.body.style.visibility = null;
+    });
+  </script>
+</body>
+
+</html>

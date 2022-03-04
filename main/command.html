@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <script>console.log("(・ὢ・)見たな....")</script>
+  <!-- LINE Tag Base Code -->
+  <!-- Do Not Modify -->
+  <script>
+      (function (g, d, o) {
+        g._ltq = g._ltq || []; g._lt = g._lt || function () { g._ltq.push(arguments) };
+        var h = location.protocol === 'https:' ? 'https://d.line-scdn.net' : 'http://d.line-cdn.net';
+        var s = d.createElement('script'); s.async = 1;
+        s.src = o || h + '/n/line_tag/public/release/v1/lt.js';
+        var t = d.getElementsByTagName('script')[0]; t.parentNode.insertBefore(s, t);
+      })(window, document);
+    _lt('init', {
+      customerType: 'account',
+      tagId: '31e6eaa0-0503-4711-9940-9716a1439ba6'
+    });
+    _lt('send', 'pv', ['31e6eaa0-0503-4711-9940-9716a1439ba6']);
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://tr.line.me/tag.gif?c_t=lap&t_id=31e6eaa0-0503-4711-9940-9716a1439ba6&e=pv&noscript=1" />
+  </noscript>
+  <!-- End LINE Tag Base Code -->
+  <script>
+    _lt('send', 'cv', {
+      type: 'Conversion'
+    }, ['31e6eaa0-0503-4711-9940-9716a1439ba6']);
+  </script>
+
+  <title>command</title>
+  <meta charset="utf-8">
+  <meta name="author" content="アヂョベ">
+  <meta name="description" content="やあ">
+  <meta name="keywords" content="command">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <style>
+    @font-face {
+      font-family: 'myFont';
+      src: url("../assets/font/PixelMplus12-Regular.woff") format("woff");
+    }
+
+    body {
+      color: white;
+      background-color: black;
+      font-family: 'myFont', 'ＭＳ ゴシック', 'ＭＳ Ｐゴシック', 'MS UI Gothic', 'ＭＳ 明朝', 'ＭＳ Ｐ明朝', sans-serif, monospace, 'Courier', 'Courier New', 'Garamond', serif;
+    }
+
+    main>* {
+      white-space: pre-wrap;
+    }
+
+    #error {
+      color: deepskyblue;
+      background-color: white;
+      font-family: 'YuGothic', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', 'Meiryo', 'ＭＳ ゴシック', sans-serif;
+      border: 4px solid red;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <button onclick="this.remove();qqq()">hello</button>
+    <div id="command"></div>
+    <br><br>
+    <div id="error" style="display: none;"></div>
+    <br><br>
+  </main>
+
+  <script language="JavaScript1.5" type="">function getVersion() { return "1.5" ; }</script>
+  <script language="JavaScript1.6" type="">function getVersion() { return "1.6" ; }</script>
+  <script language="JavaScript1.7" type="">function getVersion() { return "1.7" ; }</script>
+  <script language="JavaScript1.8" type="">function getVersion() { return "1.8" ; }</script>
+  <script language="JavaScript1.9" type="">function getVersion() { return "1.9" ; }</script>
+  <script language="JavaScript2.0" type="">function getVersion() { return "2.0" ; }</script>
+  <script>
+    const pre = (a, b = false) => {
+      document.getElementById("command").innerHTML += "<div" + (b !== false ? (" id=\"" + b + "\"") : "") + " style=\"display: none;\">" + a + "</div>"
+    };
+    const inn = (a = "", b, c = false) => {
+      if (c) {
+        document.getElementById(b).innerHTML += a;
+      } else {
+        document.getElementById(b).innerHTML = a;
+      }
+    }
+    const interval = 1000;
+    let err = false;
+    const qqq = () => {
+      try {
+        pre("color depth\t：" + window.screen.colorDepth + "Bit");
+        pre("pixel depth\t：" + window.screen.pixelDepth + "Bit");
+        pre("width\t\t：" + window.screen.width, "width");
+        pre("height\t\t：" + window.screen.height, "height");
+        pre("avail top\t：" + window.screen.availTop, "avail top");
+        pre("avail left\t：" + window.screen.availLeft, "avail left");
+        pre("avail width\t：" + window.screen.availWidth, "avail width");
+        pre("avail height\t：" + window.screen.availHeight, "avail height");
+        pre("screen top\t：" + window.screenTop, "screen top");
+        pre("screen left\t：" + window.screenLeft, "screen left");
+        pre("scroll x\t：" + window.scrollX, "scroll x");
+        pre("scroll y\t：" + window.scrollY, "scroll y");
+        pre("screen x\t：" + window.screenX, "screen x");
+        pre("screen y\t：" + window.screenY, "screen y");
+        pre("D scroll top\t：" + document.body.scrollTop, "D scroll top");
+        pre("D scroll left\t：" + document.body.scrollLeft, "D scroll left");
+        pre("D scroll width\t：" + document.body.scrollWidth, "D scroll widrh");
+        pre("D scroll height\t：" + document.body.scrollHeight, "D scroll height");
+        pre("D client top\t：" + document.body.clientTop, "D client top");
+        pre("D client left\t：" + document.body.clientLeft, "D client left");
+        pre("D client width\t：" + document.body.clientWidth, "D client width");
+        pre("D client height\t：" + document.body.clientHeight, "D client height");
+        pre("D offset top\t：" + document.body.offsetTop, "D offset top");
+        pre("D offset left\t：" + document.body.offsetLeft, "D offset left");
+        pre("D offset width\t：" + document.body.offsetWidth, "D offset width");
+        pre("D offset height\t：" + document.body.offsetHeight, "D offset height");
+        pre("E scroll top\t：" + document.documentElement.scrollTop, "E scroll top");
+        pre("E scroll left\t：" + document.documentElement.scrollLeft, "E scroll left");
+        pre("E scroll width\t：" + document.documentElement.scrollWidth, "E scroll width");
+        pre("E scroll height\t：" + document.documentElement.scrollHeight, "E scroll height");
+        pre("E client top\t：" + document.documentElement.clientTop, "E client top");
+        pre("E client left\t：" + document.documentElement.clientLeft, "E client left");
+        pre("E client width\t：" + document.documentElement.clientWidth, "E client width");
+        pre("E client height\t：" + document.documentElement.clientHeight, "E client height");
+        pre("E offset top\t：" + document.documentElement.offsetTop, "E offset top");
+        pre("E offset left\t：" + document.documentElement.offsetLeft, "E offset left");
+        pre("E offset width\t：" + document.documentElement.offsetWidth, "E offset width");
+        pre("E offset height\t：" + document.documentElement.offsetHeight, "E offset height");
+        pre("inner width\t：" + window.innerWidth, "inner width");
+        pre("inner height\t：" + window.innerHeight, "inner height");
+        pre("page x offset\t：" + window.pageXOffset, "page x offset");
+        pre("page y offset\t：" + window.pageYOffset, "page y offset");
+        const scroll = () => {
+          inn("width\t\t：" + window.screen.width, "width");
+          inn("height\t\t：" + window.screen.height, "height");
+          inn("avail top\t：" + window.screen.availTop, "avail top");
+          inn("avail left\t：" + window.screen.availLeft, "avail left");
+          inn("avail width\t：" + window.screen.availWidth, "avail width");
+          inn("avail height\t：" + window.screen.availHeight, "avail height");
+          inn("screen top\t：" + window.screenTop, "screen top");
+          inn("screen left\t：" + window.screenLeft, "screen left");
+          inn("scroll x\t：" + window.scrollX, "scroll x");
+          inn("scroll y\t：" + window.scrollY, "scroll y");
+          inn("screen x\t：" + window.screenX, "screen x");
+          inn("screen y\t：" + window.screenY, "screen y");
+          inn("D scroll top\t：" + document.body.scrollTop, "D scroll top");
+          inn("D scroll left\t：" + document.body.scrollLeft, "D scroll left");
+          inn("D scroll width\t：" + document.body.scrollWidth, "D scroll widrh");
+          inn("D scroll height\t：" + document.body.scrollHeight, "D scroll height");
+          inn("D client top\t：" + document.body.clientTop, "D client top");
+          inn("D client left\t：" + document.body.clientLeft, "D client left");
+          inn("D client width\t：" + document.body.clientWidth, "D client width");
+          inn("D client height\t：" + document.body.clientHeight, "D client height");
+          inn("D offset top\t：" + document.body.offsetTop, "D offset top");
+          inn("D offset left\t：" + document.body.offsetLeft, "D offset left");
+          inn("D offset width\t：" + document.body.offsetWidth, "D offset width");
+          inn("D offset height\t：" + document.body.offsetHeight, "D offset height");
+          inn("E scroll top\t：" + document.documentElement.scrollTop, "E scroll top");
+          inn("E scroll left\t：" + document.documentElement.scrollLeft, "E scroll left");
+          inn("E scroll width\t：" + document.documentElement.scrollWidth, "E scroll width");
+          inn("E scroll height\t：" + document.documentElement.scrollHeight, "E scroll height");
+          inn("E client top\t：" + document.documentElement.clientTop, "E client top");
+          inn("E client left\t：" + document.documentElement.clientLeft, "E client left");
+          inn("E client width\t：" + document.documentElement.clientWidth, "E client width");
+          inn("E client height\t：" + document.documentElement.clientHeight, "E client height");
+          inn("E offset top\t：" + document.documentElement.offsetTop, "E offset top");
+          inn("E offset left\t：" + document.documentElement.offsetLeft, "E offset left");
+          inn("E offset width\t：" + document.documentElement.offsetWidth, "E offset width");
+          inn("E offset height\t：" + document.documentElement.offsetHeight, "E offset height");
+          inn("inner width\t：" + window.innerWidth, "inner width");
+          inn("inner height\t：" + window.innerHeight, "inner height");
+          inn("page x offset\t：" + window.pageXOffset, "page x offset");
+          inn("page y offset\t：" + window.pageYOffset, "page y offset");
+        };
+        addEventListener("scroll", scroll);
+        pre("NetworkInformation")
+        if ("connection" in window.navigator) {
+          pre("・回線速度\t： ", "effectiveType");
+          if ("effectiveType" in window.navigator.connection) {
+            inn(window.navigator.connection.effectiveType, "effectiveType", true);
+          } else {
+            inn("[not supported]", "effectiveType", true);
+          }
+          pre("・RTT\t\t： ", "rrt");
+          if ("rrt" in window.navigator.connection) {
+            inn(window.navigator.connection.rtt + "ms", "rrt", true);
+          } else {
+            inn("[not supported]", "rrt", true);
+          }
+          pre("・通信制限\t： ", "saveData");
+          if ("saveData" in window.navigator.connection) {
+            inn(window.navigator.connection.saveData, "saveData", true);
+          } else {
+            inn("[not supported]", "saveData", true);
+          }
+          pre("・DownLink\t： ", "downlink");
+          if ("downlink" in window.navigator.connection) {
+            inn(window.navigator.connection.downlink + "Mbps", "downlink", true);
+          } else {
+            inn("[not supported]", "downlink", true);
+          }
+        } else {
+          pre("・[not supported]");
+        }
+        pre("Cookie enabled\t： " + window.navigator.cookieEnabled);
+        pre("This device has at least [" + window.navigator.deviceMemory + "GiB" + (window.navigator.deviceMemory < 0.5 ? " or less" : window.navigator.deviceMemory > 4 ? " or more" : "") + "] of RAM.");
+        pre("DNT設定\t\t： " + window.navigator.doNotTrack);
+        pre("論理CPUコア数\t： " + window.navigator.hardwareConcurrency);
+        pre("推奨言語\t： " + window.navigator.language);
+        pre("容認言語\t： " + window.navigator.languages);
+        pre("最大タッチ点\t： " + window.navigator.maxTouchPoints);
+        pre("このブラウザは" + (window.navigator.maxTouchPoints > 0 ? (window.navigator.maxTouchPoints > 1 ? "マルチタッチに対応しています。" : "画面をタッチできますがマルチタッチは未対応です。") : "画面をタッチできません。"));
+        pre("geolocation\t：", "geolocation");
+        window.navigator.geolocation.getCurrentPosition(() => inn("enabled", "geolocation", true), () => inn("disabled", "geolocation", true));
+        for (let i = 0; i < window.navigator.getGamepads().length; i++) {
+          pre("game pad " + i + "\t：" + window.navigator.getGamepads()[i], "gamepad" + i);
+        }
+        const gamepad = () => {
+          for (let i = 0; i < window.navigator.getGamepads().length; i++) {
+            inn("game pad " + i + "\t：" + window.navigator.getGamepads()[i], "gamepad" + i);
+          }
+        };
+        addEventListener("gamepadconnected", gamepad);
+        addEventListener("gamepaddisconnected", gamepad);
+        pre("notification\t：", "notification");
+        if ("Notification" in window) {
+          if ("requestPermission" in window.Notification) {
+            window.Notification.requestPermission().then(() => inn("enabled", "notification", true)).catch(() => inn("disabled", "notification", true));
+          } else {
+            inn("not supported", "notification", true);
+          }
+        } else {
+          inn("not supported", "notification", true);
+        }
+        pre("microphone\t：", "audio")
+        window.navigator.mediaDevices.getUserMedia({ audio: true }).then(() => inn("enabled", "audio", true)).catch(() => inn("disabled", "audio", true));
+        pre("camera\t\t：", "video")
+        window.navigator.mediaDevices.getUserMedia({ video: true }).then(() => inn("enabled", "video", true)).catch(() => inn("disabled", "video", true));
+        pre("push manager");
+        if ("PushManager" in window) {
+          if ("supportedContentEncodings" in window.PushManager) {
+            if (window.PushManager.supportedContentEncodings.length > 0) {
+              for (let i = 0; i < window.PushManager.supportedContentEncodings.length; i++) {
+                pre("・encodings\t：" + window.PushManager.supportedContentEncodings[i]);
+              }
+            } else {
+              pre("・[none]");
+            }
+          } else {
+            pre("・[not supported]");
+          }
+        } else {
+          pre("・[not supported]");
+        }
+        pre("midi\t\t：", "midi");
+        window.navigator.requestMIDIAccess().then(() => { inn("enabled", "midi", true) }, () => { inn("disabled", "midi", true) });
+        pre("wake look\t：", "wakeLock")
+        let wakeLock = null;
+        async function wakeLock2() {
+          try {
+            wakeLock = await navigator.wakeLock.request('screen');
+            inn("enabled", "wakeLock2", true);
+          } catch (error) {
+            inn("disabled", "wakeLock2", true);
+            inn("\n　・" + error.name, "wakeLock2", true);
+            inn("\n　・" + error.message, "wakeLock2", true);
+          }
+          wakeLock.release().then(() => { wakeLock = null; });
+        }
+        if ("wakeLock" in window.navigator) {
+          inn("supported", "wakeLock", true);
+          pre("・", "wakeLock2");
+          wakeLock2();
+        } else {
+          inn("not supported", "wakeLock", true);
+        }
+        pre("BG frtch\t：" + ("BackgroundFetchManager" in self ? "" : "not ") + "supported");
+        pre("BG sync\t\t：" + ("SyncManager" in window ? "" : "not ") + "supported");
+        pre("bluetooth\t：", "bluetooth");
+        async function bluetooth() {
+          await window.navigator.bluetooth.requestDevice({ acceptAllDevices: true }).then(a => inn("\n・" + a.name, "bluetooth", true)).catch(a => inn("\n・" + a, "bluetooth", true));
+        }
+        if ("bluetooth" in window.navigator) {
+          inn("supported", "bluetooth", true);
+          bluetooth();
+        } else {
+          inn("not supported", "bluetooth", true);
+        }
+        pre("ambient light sensor", "ALS");
+        if ('AmbientLightSensor' in window) {
+          const sensor = new AmbientLightSensor();
+          sensor.onreading = () => {
+            inn("\n・current light level\t：" + sensor.illuminance, "ALS", true);
+          };
+          sensor.onerror = (event) => {
+            inn("\n・" + event.error.name, "ALS", true)
+            inn("\n・" + event.error.message, "ALS", true)
+          };
+          sensor.start();
+        } else {
+          inn("\n・not supported", "ALS", true)
+        }
+        if ("Accelerometer" in window) {
+          let acl = new Accelerometer({ frequency: 60 });
+          pre("Acceleration X\t：" + acl.x, "AX-axis");
+          pre("Acceleration Y\t：" + acl.y, "AY-axis");
+          pre("Acceleration Z\t：" + acl.z, "AZ-axis");
+          acl.addEventListener('reading', () => {
+            inn("Acceleration X\t：" + acl.x, "X-axis");
+            inn("Acceleration Y\t：" + acl.y, "Y-axis");
+            inn("Acceleration Z\t：" + acl.z, "Z-axis");
+          });
+          acl.start();
+        } else {
+          pre("Accelerometer\t：not supported");
+        }
+        if ("Gyroscope" in window) {
+          let gyroscope = new Gyroscope({ frequency: 60 });
+          pre("gyroscope X\t：" + gyroscope.x, "GX-axis");
+          pre("gyroscope Y\t：" + gyroscope.y, "GY-axis");
+          pre("gyroscope Z\t：" + gyroscope.z, "GZ-axis");
+          gyroscope.addEventListener('reading', e => {
+            inn("gyroscope X\t：" + gyroscope.x, "GX-axis");
+            inn("gyroscope Y\t：" + gyroscope.y, "GY-axis");
+            inn("gyroscope Z\t：" + gyroscope.z, "GZ-axis");
+          });
+          gyroscope.start();
+        } else {
+          pre("Gyroscope\t：not supported");
+        }
+        if ("Magnetometer" in window) {
+          let magSensor = new Magnetometer({ frequency: 60 });
+          pre("Magnetic field X\t：" + magSensor.x, "MX-axis");
+          pre("Magnetic field Y\t：" + magSensor.y, "MY-axis");
+          pre("Magnetic field Z\t：" + magSensor.z, "MZ-axis");
+          magSensor.addEventListener('reading', e => {
+            inn("Magnetic field X\t：" + magSensor.x, "MX-axis");
+            inn("Magnetic field Y\t：" + magSensor.y, "MY-axis");
+            inn("Magnetic field Z\t：" + magSensor.z, "MZ-axis");
+          });
+          magSensor.start();
+        } else {
+          pre("Magnetometer\t：not supported");
+        }
+        pre("audio\t\t：", "Daudio");
+        pre("video\t\t：", "Dvideo");
+        if ("getDisplayMedia" in window.navigator.mediaDevices) {
+          window.navigator.mediaDevices.getDisplayMedia({ audio: true }).then(() => inn("enabled", "Daudio", true)).catch(() => inn("disabled", "Daudio", true));
+          window.navigator.mediaDevices.getDisplayMedia({ video: true }).then(() => inn("enabled", "Dvideo", true)).catch(() => inn("disabled", "Dvideo", true));
+        } else {
+          inn("not supported", "Daudio", true);
+          inn("not supported", "Dvideo", true);
+        }
+        pre("device info", "device info");
+        if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+          inn("\nenumerateDevices() not supported.", "device info", true);
+        } else {
+          navigator.mediaDevices.enumerateDevices()
+            .then(function (devices) {
+              devices.forEach(function (device) {
+                if (device.deviceId == "") {
+                  inn("\n" + device.kind + "\t：[none]", "device info", true);
+                } else {
+                  inn("\n・" + device.kind + "\t：" + device.label +
+                    "\n┗id\t\t：" + device.deviceId, "device info", true);
+                }
+              });
+            })
+            .catch(function (err) {
+              inn("\n" + err.name + ": " + error.message, "device info", true);
+            });
+        }
+        pre("このデバイスは[" + (window.navigator.onLine ? "online" : "offline") + "]です。", "online");
+        addEventListener("online", inn("このデバイスは[" + (window.navigator.onLine ? "online" : "offline") + "]です。", "online"));
+        addEventListener("offline", inn("このデバイスは[" + (window.navigator.onLine ? "online" : "offline") + "]です。", "online"));
+        pre("plugins");
+        if (window.navigator.plugins.length > 0) {
+          for (let i = 0; i < window.navigator.plugins.length; i++) {
+            if (i + 2 > window.navigator.plugins.length) {
+              pre("┗filename\t：" + (window.navigator.plugins[i].filename == "" ? "[none]" : window.navigator.plugins[i].filename));
+              pre("　┣name\t：" + (window.navigator.plugins[i].name == "" ? "[none]" : window.navigator.plugins[i].name));
+              pre("　┗description\t：" + (window.navigator.plugins[i].description == "" ? "[none]" : window.navigator.plugins[i].description));
+            } else {
+              pre("┣filename\t：" + (window.navigator.plugins[i].filename == "" ? "[none]" : window.navigator.plugins[i].filename));
+              pre("┃┣name\t：" + (window.navigator.plugins[i].name == "" ? "[none]" : window.navigator.plugins[i].name));
+              pre("┃┗description\t：" + (window.navigator.plugins[i].description == "" ? "[none]" : window.navigator.plugins[i].description));
+            }
+          }
+        } else {
+          pre("・[none]");
+        }
+        pre("計測失敗", "usage");
+        window.navigator.storage.estimate().then(function (estimate) { inn("usage\t\t：" + estimate.usage, "usage"); })
+        pre("計測失敗", "quota");
+        window.navigator.storage.estimate().then(function (estimate) { inn("quota\t\t：" + estimate.quota, "quota"); })
+        pre("計測失敗", "storage");
+        window.navigator.storage.estimate().then(function (estimate) { inn("使用可能なストレージの約" + (estimate.usage / estimate.quota * 100).toFixed(2) + "%を使用中", "storage"); })
+        pre("計測失敗", "persistent");
+        if (navigator.storage && navigator.storage.persist) {
+          navigator.storage.persist().then(function (persistent) {
+            if (persistent)
+              inn("明示的なユーザー操作以外では、ストレージは消去されません。", "persistent");
+            else
+              inn("ストレージは UA によってストレージの圧力により消去されるかもしれません。", "persistent");
+          });
+        }
+        pre("user agent\t：" + window.navigator.userAgent);
+        pre("計測失敗", "browser");
+        if (window.navigator.userAgent.toLowerCase().indexOf("msie") != -1) {
+          inn("現在のブラウザはInternet Explorerです。", "browser");
+        } else if (window.navigator.userAgent.toLowerCase().indexOf("edg") != -1) {
+          inn("現在のブラウザはEdgeです。", "browser");
+        } else if (window.navigator.userAgent.toLowerCase().indexOf("chrome") != -1) {
+          inn("現在のブラウザはChromeです。", "browser");
+        } else if (window.navigator.userAgent.toLowerCase().indexOf("safari") != -1) {
+          inn("現在のブラウザはSafariです。", "browser");
+        } else if (window.navigator.userAgent.toLowerCase().indexOf("firefox") != -1) {
+          inn("現在のブラウザはFireFoxです。", "browser");
+        }
+        pre("ベンダー\t：" + window.navigator.vendor);
+        pre("あなたはロボットで" + (window.navigator.webdriver ? "す。" : "はありません。"));
+        pre("platform\t：" + window.navigator.platform);
+        pre("product\t\t：" + window.navigator.product);
+        pre("build number\t：" + window.navigator.productSub);
+        pre("app name\t：" + window.navigator.appName);
+        pre("JSversion\t：" + getVersion());
+      } catch (error) {
+        err = true;
+        document.getElementById("error").removeAttribute("style");
+        document.getElementById("error").innerHTML += ("おっと！　エラーが起きて止まってしまったみたいだ。\n名前は[" + error.name + "]\n内容は[" + error.message + "]\n最後の要素は[<span id=\"spanerror\">" + document.getElementById("command").lastElementChild.innerHTML + "</span>]\nだよ。[]内のメッセージをそのままコピペして制作者に教えてあげよう！　もしかしたら修正してくれるかもね。でもここまでやって一つ一つエラーをつぶしていくのは面倒だよね？　このメッセージが出ているということは、つまりそういうことさ！　わかったらさっさとエラーが起きないデバイスとブラウザとバージョンとその他諸々の環境を用意するんだね。")
+      }
+
+      let commandDisplay = 0;
+      const commandElement = number => {
+        let commandText = document.getElementById("command").children[number].innerHTML;
+        document.getElementById("command").children[number].innerHTML = "";
+        commandInner(number, commandText, 0);
+        document.getElementById("command").children[number].style.display = "";
+        document.getElementById("command").children[number].scrollIntoView(true);
+        if (number + 1 < document.getElementById("command").children.length) {
+          commandInterval();
+        }
+      };
+      const commandInterval = () => setTimeout(() => commandElement(commandDisplay++), 100);
+      const commandInner = (number, commandText, commandnumber) => setTimeout(() => {
+        document.getElementById("command").children[number].innerHTML += commandText[commandnumber++];
+        if (commandnumber < commandText.length) {
+          commandInner(number, commandText, commandnumber);
+        }
+        // if (err) {
+        //   document.getElementById("spanerror").innerHTML = document.getElementById("command").lastElementChild.innerHTML;
+        // }
+      }, 10);
+      commandInterval();
+    };
+  </script>
+</body>
