@@ -398,8 +398,8 @@
           sheetOpen(this.checked, [createDiv], "hidden");
         }
         createInput.input.addEventListener("change", createInput_function, { passive: true });
+        createInput.wrap.appendChild(createDiv);
         section.appendChild(createInput.wrap);
-        section.appendChild(createDiv);
         sheetWrap_element.appendChild(section);
       }
     }
@@ -470,7 +470,10 @@
       loginPage_element.classList.remove("none");
       logoutPage_element.classList.add("none");
       createNewSheet_element.classList.add("hidden");
-      Object.values(loginHiddenElements.sheet).forEach(e => e.classList.add("hidden"));
+      Object.values(loginHiddenElements.sheet).forEach(e => {
+        e.checked = false;
+        e.classList.add("hidden");
+      });
     }
     logout();
     function logout_function() {
