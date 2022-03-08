@@ -184,6 +184,10 @@
       word-wrap: break-word;
       text-align: left;
     }
+
+    header>article>section>div>* {
+      margin: 3px 0;
+    }
   </style>
 </head>
 
@@ -197,6 +201,7 @@
         </div>
         <div id="logoutPage" class="none">
           <h1>ようこそ <span class="userName"></span> </h1>
+          <div><button id="refresh">更新する</button></div>
           <div><button id="logoutButton">ログアウトする</button></div>
         </div>
       </section>
@@ -312,6 +317,7 @@
     const loginPage_element = document.querySelector("#loginPage");
     const loginButton_element = document.querySelector("#loginButton");
     const logoutPage_element = document.querySelector("#logoutPage");
+    const refreshButton_element = document.querySelector("#refresh");
     const logoutButton_element = document.querySelector("#logoutButton");
     const password_element = document.querySelector("#password");
     const createNewSheet_element = document.querySelector("#createNewSheet");
@@ -471,6 +477,11 @@
       if (window.confirm("本当にログアウトしますか？")) { logout(); }
     }
     logoutButton_element.addEventListener("click", logout_function, { passive: true });
+
+    function refreah_function() {
+      status.refreshKeijiban().then(r => refreshSheet());
+    }
+    refreshButton_element.addEventListener("click", refreah_function, { passive: true });
 
     function createNewSheetToggle_function() {
       if (this.checked) {
