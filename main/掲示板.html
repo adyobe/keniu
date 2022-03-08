@@ -470,7 +470,7 @@
       loginPage_element.classList.remove("none");
       logoutPage_element.classList.add("none");
       createNewSheet_element.classList.add("hidden");
-      Object.values(loginHiddenElements.sheet).forEach(e => e.classList.remove("hidden"));
+      Object.values(loginHiddenElements.sheet).forEach(e => e.classList.add("hidden"));
     }
     logout();
     function logout_function() {
