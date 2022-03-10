@@ -231,6 +231,7 @@
     </article>
   </main>
   <script src="../assets/js/lineLogin.js"></script>
+  <script src="../assets/js/adb.js"></script>
   <script>
     const config = {
       maxCreateNewSheetTitleLength: 16,
@@ -447,7 +448,12 @@
     async function loginButton_function() {
       try {
         let response = await adbLogin("get", { password: password_element.value });
-        login_function(response.value);
+        adb.setIdb({
+          id: "lineLogin",
+          userName: response.value[0],
+          userId: response.value[1],
+        });
+        login_function(response.value[0], response.value[1]);
       } catch (error) {
         console.error(error);
       }
@@ -458,8 +464,8 @@
       createNewSheet_element.classList.remove("hidden");
       Object.values(loginHiddenElements.sheet).forEach(e => e.classList.remove("hidden"));
     }
-    function login_function(arr = [status.userName, status.userId]) {
-      [status.userName, status.userId] = arr;
+    function login_function(userName = "", userId = "") {
+      [status.userName, status.userId] = [userName, userId];
       login();
     }
     loginButton_element.addEventListener("click", loginButton_function, { passive: true });
@@ -504,6 +510,13 @@
       }
     }
     createNewSheetEditorButton_element.addEventListener("click", createNewSheetEditor_function, { passive: true });
+
+    (async function () {
+      const obj = await adb.getIdb();
+      if (!status.userId && "lineLogin" in obj) {
+        login_function(obj.lineLogin.userName, obj.lineLogin.userId);
+      }
+    })();
   </script>
 </body>
 
