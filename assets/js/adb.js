@@ -248,6 +248,12 @@ const adb = {};
       configurable: false,
       enumerable: true,
     },
+    typeOf: {
+      value: obj => Object.prototype.toString.call(obj).slice(8, -1).toLowerCase(),
+      writable: false,
+      configurable: false,
+      enumerable: true,
+    },
   });
 
   Object.defineProperties(Array.prototype, {
@@ -282,7 +288,24 @@ const adb = {};
       writable: false,
       configurable: false,
       enumerable: false,
-    }
+    },
+    equal: {
+      value: function (arr = []) {
+        if (Array.isArray(arr) && this.length == arr.length) {
+          return this.every((e, i) => {
+            if (Array.isArray(e) || adb.typeOf(e) === "object") {
+              return e.equal(arr[i]);
+            } else {
+              return arr[i] === e;
+            }
+          })
+        }
+        return false;
+      },
+      writable: false,
+      configurable: false,
+      enumerable: false,
+    },
   });
 
   Object.defineProperties(Object.prototype, {
@@ -290,6 +313,27 @@ const adb = {};
       get() { return Object.keys(this).length; },
       configurable: false,
       enumerable: false,
-    }
+    },
+    equal: {
+      value: function (obj = {}) {
+        if (adb.typeOf(obj) && this.length == obj.length) {
+          return Object.entries(this).every((e, i) => {
+            const key = e[0];
+            const value = e[1];
+            if (!(key in obj)) {
+              return false;
+            } else if (Array.isArray(value) || adb.typeOf(value) === "object") {
+              return value.equal(obj[key]);
+            } else {
+              return value === obj[key];
+            }
+          })
+        }
+        return false;
+      },
+      writable: false,
+      configurable: false,
+      enumerable: false,
+    },
   });
 })();
